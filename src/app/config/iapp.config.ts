@@ -3,6 +3,7 @@ export interface IAppConfig {
   endpoints: any;
   votesLimit: number;
   topHeroesLimit: number;
+  topYachtsLimit: number;
   snackBarDuration: number;
   repositoryURL: string;
 }

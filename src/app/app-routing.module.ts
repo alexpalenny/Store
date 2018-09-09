@@ -9,6 +9,7 @@ const routes: Routes = [
   {path: '', component: HomePage},
   {path: AppConfig.routes.error404, component: Error404Page},
   {path: AppConfig.routes.heroes, loadChildren: './modules/heroes/heroes.module#HeroesModule'},
+  {path: AppConfig.routes.yachts, loadChildren: './modules/yachts/yachts.module#YachtsModule'},
 
   // otherwise redirect to 404
   {path: '**', redirectTo: '/' + AppConfig.routes.error404}

@@ -7,6 +7,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {APP_CONFIG, AppConfig} from './config/app.config';
 import {HeroService} from './modules/heroes/shared/hero.service';
+import {YachtService} from './modules/yachts/shared/yacht.service';
 import {CoreModule} from './core/core.module';
 
 describe('AppComponent', () => {
@@ -27,7 +28,8 @@ describe('AppComponent', () => {
       providers: [
         {provide: APP_CONFIG, useValue: AppConfig},
         {provide: APP_BASE_HREF, useValue: '/'},
-        HeroService
+        HeroService,
+        YachtService,
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();

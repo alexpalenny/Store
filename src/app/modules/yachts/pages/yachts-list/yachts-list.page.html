@@ -1,0 +1,71 @@
+<div id="left">
+  <h2 class="header__title">{{ 'yachtsList' | translate }}</h2>
+  <div>
+    <mat-progress-spinner *ngIf="!yachts"
+                          class="progress__spinner"
+                          [color]="'primary'"
+                          [mode]="'indeterminate'">
+    </mat-progress-spinner>
+    <mat-list>
+      <mat-list-item *ngFor="let yacht of yachts">
+        <img *ngIf="yacht.default" class="cp"
+             (click)="seeYachtDetails(yacht);" mat-list-avatar
+             src="assets/images/yachts/{{yacht.id}}-thumbnail.jpg">
+        <img *ngIf="!yacht.default"
+             (click)="seeYachtDetails(yacht);" mat-list-avatar src="assets/images/yachts/default.png">
+        <h3 mat-line [class.cp]="yacht.default" (click)="seeYachtDetails(yacht);"> {{yacht.name}} </h3>
+        <p mat-line [class.cp]="yacht.default" (click)="seeYachtDetails(yacht);">
+          <span>{{yacht.alterEgo}}</span>
+        </p>
+        <div class="yacht-actions">
+          {{yacht.likes | number:'.0'}}
+          <mat-icon matTooltip="{{(canVote ? 'canVote' : 'cannotVote') | translate}}"
+                    [matTooltipPosition]="'above'"
+                    class="icon__like--red" (click)="like(yacht)">
+            favorite
+          </mat-icon>
+          <mat-icon class="icon__remove" *ngIf="!yacht.default"
+                    (click)="remove(yacht);">
+            delete
+          </mat-icon>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>
+<div id="right">
+  <h2 class="header__title">{{ 'createYacht' | translate }}</h2>
+  <div>
+    <form [formGroup]="newYachtForm" #form="ngForm" (ngSubmit)="createNewYacht(newYachtForm.value)">
+      <mat-form-field class="input-container">
+        <input matInput type="text"
+               placeholder="{{'name' | translate}}"
+               formControlName="name">
+        <mat-error *ngIf="!newYachtForm.controls.name.valid && newYachtForm.controls.name.touched">
+          {{'nameRequired' | translate}}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="input-container">
+        <input matInput type="text"
+               placeholder="{{'realName' | translate}}"
+               formControlName="alterEgo">
+        <mat-error *ngIf="!newYachtForm.controls.alterEgo.valid && newYachtForm.controls.alterEgo.touched">
+          {{'realNameRequired' | translate}}
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button type="submit" [disabled]="!newYachtForm.valid">
+        {{'create' | translate}}
+      </button>
+
+      <div *ngIf="error">{{error | translate}}</div>
+    </form>
+  </div>
+
+  <div id="yachts-json">
+    <h2 class="header__title">{{ 'firstTwoYachtsById' | translate }}</h2>
+    <pre>{{yachts | slice:0:2 | json}}</pre>
+  </div>
+</div>
+<div class="clear"></div>

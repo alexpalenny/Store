@@ -50,6 +50,13 @@ export class AppComponent implements OnInit {
               content: 'List of super-heroes'
             });
             break;
+          case '/' + AppConfig.routes.yachts:
+            this.title.setTitle('Yachts list');
+            this.meta.updateTag({
+              name: 'description',
+              content: 'List of yachts'
+            });
+            break;
         }
       }
     });

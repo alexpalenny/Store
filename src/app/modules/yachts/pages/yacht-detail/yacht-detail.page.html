@@ -1,0 +1,37 @@
+<h1 class="header__title">{{'yachtDetail' | translate}}</h1>
+<mat-progress-spinner *ngIf="!yacht"
+                      class="progress__spinner"
+                      [color]="'primary'"
+                      [mode]="'indeterminate'">
+</mat-progress-spinner>
+<div id="yacht-detail" *ngIf="yacht">
+    <ng-container>
+        <mat-card class="yacht-card">
+            <mat-card-header>
+                <div mat-card-avatar class="yacht-header__image"
+                     [ngStyle]="{'background-image': 'url(assets/images/yachts/' + yacht.id + '-thumbnail.jpg)'}"></div>
+                <mat-card-title>{{yacht.name}}</mat-card-title>
+                <mat-card-subtitle>{{yacht.alterEgo}}</mat-card-subtitle>
+                <div class="flex-spacer"></div>
+                <div class="yacht-actions">
+                    {{yacht.likes}}
+                    <mat-icon matTooltip="{{(canVote ? 'canVote' : 'cannotVote') | translate}}"
+                              [matTooltipPosition]="'above'"
+                              class="icon__like--red" (click)="like(yacht)">favorite
+                    </mat-icon>
+                </div>
+            </mat-card-header>
+            <img mat-card-image src="assets/images/yachts/{{yacht.id}}.jpg">
+        </mat-card>
+
+        <div id="yacht-json">
+            <pre>{{yacht | json}}</pre>
+        </div>
+    </ng-container>
+</div>
+<button mat-raised-button type="button" (click)="dynamicImport()">
+    {{'snapshot' | translate | uppercase}}
+</button>
+<button mat-raised-button type="button" (click)="goBack()">
+    {{'goBack' | translate | uppercase}}
+</button>
