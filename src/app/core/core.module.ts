@@ -12,6 +12,7 @@ import {FooterComponent} from './components/footer/footer.component';
 import {Error404Page} from './pages/error404/error404.page';
 import {SearchBarComponent} from './components/search-bar/search-bar.component';
 import {HeroService} from '../modules/heroes/shared/hero.service';
+import {YachtService} from '../modules/yachts/shared/yacht.service';
 
 @NgModule({
   imports: [
@@ -33,6 +34,7 @@ import {HeroService} from '../modules/heroes/shared/hero.service';
   ],
   providers: [
     HeroService,
+    YachtService,
     LoggerService,
     ProgressBarService
   ]

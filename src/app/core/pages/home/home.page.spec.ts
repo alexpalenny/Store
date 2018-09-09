@@ -5,12 +5,14 @@ import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {TestsModule} from '../../../shared/modules/tests.module';
 import {APP_CONFIG, AppConfig} from '../../../config/app.config';
 import {HeroService} from '../../../modules/heroes/shared/hero.service';
+import {YachtService} from '../../../modules/yachts/shared/yacht.service';
 import {HomePage} from './home.page';
 
 describe('HomePage', () => {
   let fixture;
   let component;
   let heroService;
+  let yachtService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -24,7 +26,8 @@ describe('HomePage', () => {
       providers: [
         {provide: APP_CONFIG, useValue: AppConfig},
         {provide: APP_BASE_HREF, useValue: '/'},
-        HeroService
+        HeroService,
+        YachtService
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
@@ -33,6 +36,7 @@ describe('HomePage', () => {
     fixture.detectChanges();
     component = fixture.debugElement.componentInstance;
     heroService = TestBed.get(HeroService);
+    yachtService = TestBed.get(YachtService);
   }));
 
   it('should create hero top component', (() => {
@@ -42,6 +46,7 @@ describe('HomePage', () => {
   it('should initialice component', fakeAsync(() => {
     fixture.detectChanges();
     spyOn(heroService, 'getHeroes').and.returnValue(Promise.resolve(true));
+    spyOn(yachtService, 'getYachts').and.returnValue(Promise.resolve(true));
     tick();
     fixture.detectChanges();
     expect(component.heroes.length).toBe(AppConfig.topHeroesLimit);
@@ -61,5 +66,6 @@ describe('HomePage', () => {
       expect(error).toBe('maximum votes');
     });
     expect(HeroService.checkIfUserCanVote()).toBe(false);
+    expect(YachtService.checkIfUserCanVote()).toBe(false);
   }));
 });

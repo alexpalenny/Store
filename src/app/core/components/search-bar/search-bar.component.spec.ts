@@ -9,6 +9,7 @@ import {TestsModule} from '../../../shared/modules/tests.module';
 import {Error404Page} from '../../pages/error404/error404.page';
 import {HomePage} from '../../pages/home/home.page';
 import {HeroService} from '../../../modules/heroes/shared/hero.service';
+import {YachtService} from '../../../modules/yachts/shared/yacht.service';
 import {Router} from '@angular/router';
 import {Hero} from '../../../modules/heroes/shared/hero.model';
 
@@ -16,6 +17,7 @@ describe('HeroSearchComponent', () => {
   let fixture;
   let component;
   let heroService;
+  let yachtService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -38,7 +40,8 @@ describe('HeroSearchComponent', () => {
         },
         {provide: APP_CONFIG, useValue: AppConfig},
         {provide: APP_BASE_HREF, useValue: '/'},
-        HeroService
+        HeroService,
+        YachtService
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
@@ -47,6 +50,7 @@ describe('HeroSearchComponent', () => {
     fixture.detectChanges();
     component = fixture.debugElement.componentInstance;
     heroService = TestBed.get(HeroService);
+    yachtService = TestBed.get(YachtService);
   }));
 
   it('should create hero search component', (() => {
@@ -55,6 +59,7 @@ describe('HeroSearchComponent', () => {
 
   it('should get all heroes', fakeAsync(() => {
     spyOn(heroService, 'getHeroes').and.returnValue(Promise.resolve(true));
+    spyOn(yachtService, 'getYachts').and.returnValue(Promise.resolve(true));
     tick();
     fixture.detectChanges();
     expect(component.defaultHeroes.length).toBeGreaterThan(0);

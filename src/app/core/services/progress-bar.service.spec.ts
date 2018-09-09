@@ -4,10 +4,11 @@ import {TestsModule} from '../../shared/modules/tests.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {APP_CONFIG, AppConfig} from '../../config/app.config';
 import {HeroService} from '../../modules/heroes/shared/hero.service';
+import {YachtService} from '../../modules/yachts/shared/yacht.service';
 
 describe('ProgressBarService', () => {
   let progressBarService;
-  let heroService;
+  let yachtService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -18,12 +19,12 @@ describe('ProgressBarService', () => {
       providers: [
         {provide: APP_CONFIG, useValue: AppConfig},
         ProgressBarService,
-        HeroService
+        YachtService
       ]
     });
 
     progressBarService = TestBed.get(ProgressBarService);
-    heroService = TestBed.get(HeroService);
+    yachtService = TestBed.get(YachtService);
   });
 
   it('should not be requestsRunning', (() => {
