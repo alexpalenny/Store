@@ -29,15 +29,14 @@ export class YachtsListPage implements OnInit {
     this.canVote = YachtService.checkIfUserCanVote();
 
     this.newYachtForm = this.formBuilder.group({
-      'name': new FormControl('', [Validators.required]),
-      'alterEgo': new FormControl('', [Validators.required])
+      'name': new FormControl('', [Validators.required])
     });
   }
 
   ngOnInit() {
     this.yachtService.getYachts().subscribe((yachts: Array<Yacht>) => {
       this.yachts = yachts.sort((a, b) => {
-        return b.likes - a.likes;
+        return b.length - a.length;
       });
     });
   }

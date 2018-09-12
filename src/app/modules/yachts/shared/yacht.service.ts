@@ -1,16 +1,16 @@
-import {Observable, of, throwError as observableThrowError} from 'rxjs';
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {AppConfig} from '../../../config/app.config';
-import {Yacht} from './yacht.model';
-import {catchError, tap} from 'rxjs/operators';
-import {MatSnackBar, MatSnackBarConfig} from '@angular/material';
-import {TranslateService} from '@ngx-translate/core';
-import {_} from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
-import {LoggerService} from '../../../core/services/logger.service';
+import { Observable, of, throwError as observableThrowError } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AppConfig } from '../../../config/app.config';
+import { Yacht } from './yacht.model';
+import { catchError, tap } from 'rxjs/operators';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
+import { TranslateService } from '@ngx-translate/core';
+import { _ } from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
+import { LoggerService } from '../../../core/services/logger.service';
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
 @Injectable()
@@ -22,8 +22,8 @@ export class YachtService {
   }
 
   constructor(private http: HttpClient,
-              private translateService: TranslateService,
-              private snackBar: MatSnackBar) {
+    private translateService: TranslateService,
+    private snackBar: MatSnackBar) {
     this.yachtsUrl = AppConfig.endpoints.yachts;
   }
 
@@ -45,11 +45,24 @@ export class YachtService {
   }
 
   getYachts(): Observable<Yacht[]> {
-    return this.http.get<Yacht[]>(this.yachtsUrl)
-      .pipe(
-        tap(() => LoggerService.log(`fetched yachts`)),
-        catchError(YachtService.handleError('getYachts', []))
-      );
+    return Observable.create((observer: Yacht[]) => {
+     return new Yacht(1,
+        "Фортуна",
+        "Парусно-моторные",
+        14,
+        3.5,
+        "На борту спальня и каюткомпания, гальюн, холодильник, газовая плита, телевизор, музыка. Имеются удочки для рыбалки, ласты и маска, для желающих нырнуть.",
+        2500,
+        2,
+        "Наличными",
+        10
+      )
+    });
+    // this.http.get<Yacht[]>(this.yachtsUrl)
+    //   .pipe(
+    //     tap(() => LoggerService.log(`fetched yachts`)),
+    //     catchError(YachtService.handleError('getYachts', []))
+    //   );
   }
 
   getYachtById(id: string): Observable<Yacht> {
@@ -62,8 +75,7 @@ export class YachtService {
 
   createYacht(yacht: Yacht): Observable<Yacht> {
     return this.http.post<Yacht>(this.yachtsUrl, JSON.stringify({
-      name: yacht.name,
-      alterEgo: yacht.alterEgo
+      name: yacht.name
     }), httpOptions).pipe(
       tap((yachtSaved: Yacht) => {
         LoggerService.log(`added yacht w/ id=${yachtSaved.id}`);
@@ -91,7 +103,7 @@ export class YachtService {
           tap(() => {
             LoggerService.log(`updated yacht id=${yacht.id}`);
             localStorage.setItem('votes', '' + (Number(localStorage.getItem('votes')) + 1));
-            yacht.likes += 1;
+            yacht.length += 1;
             this.showSnackBar('saved');
           }),
           catchError(YachtService.handleError<any>('updateYacht'))
@@ -104,7 +116,7 @@ export class YachtService {
 
   showSnackBar(name): void {
     this.translateService.get([String(_('yachtCreated')), String(_('saved')),
-      String(_('yachtLikeMaximum')), String(_('yachtRemoved'))], {'value': AppConfig.votesLimit}).subscribe((texts) => {
+    String(_('yachtLikeMaximum')), String(_('yachtRemoved'))], { 'value': AppConfig.votesLimit }).subscribe((texts) => {
       const config: any = new MatSnackBarConfig();
       config.duration = AppConfig.snackBarDuration;
       this.snackBar.open(texts[name], 'OK', config);

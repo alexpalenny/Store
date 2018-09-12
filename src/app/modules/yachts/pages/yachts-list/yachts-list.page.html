@@ -15,7 +15,6 @@
              (click)="seeYachtDetails(yacht);" mat-list-avatar src="assets/images/yachts/default.png">
         <h3 mat-line [class.cp]="yacht.default" (click)="seeYachtDetails(yacht);"> {{yacht.name}} </h3>
         <p mat-line [class.cp]="yacht.default" (click)="seeYachtDetails(yacht);">
-          <span>{{yacht.alterEgo}}</span>
         </p>
         <div class="yacht-actions">
           {{yacht.likes | number:'.0'}}
