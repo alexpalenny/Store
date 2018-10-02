@@ -17,7 +17,7 @@
         <p mat-line [class.cp]="yacht.default" (click)="seeYachtDetails(yacht);">
         </p>
         <div class="yacht-actions">
-          {{yacht.likes | number:'.0'}}
+         
           <mat-icon matTooltip="{{(canVote ? 'canVote' : 'cannotVote') | translate}}"
                     [matTooltipPosition]="'above'"
                     class="icon__like--red" (click)="like(yacht)">

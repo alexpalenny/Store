@@ -29,7 +29,8 @@ export class YachtsListPage implements OnInit {
     this.canVote = YachtService.checkIfUserCanVote();
 
     this.newYachtForm = this.formBuilder.group({
-      'name': new FormControl('', [Validators.required])
+      'name': new FormControl('', [Validators.required]),
+      'alterEgo': new FormControl('', [Validators.required])
     });
   }
 

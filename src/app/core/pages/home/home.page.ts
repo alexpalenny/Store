@@ -30,7 +30,7 @@ export class HomePage implements OnInit {
     });
     this.yachtService.getYachts().subscribe((yachts) => {
       this.yachts = yachts.sort((a, b) => {
-        return b.likes - a.likes;
+        return 0;
       }).slice(0, AppConfig.topYachtsLimit);
     });
   }

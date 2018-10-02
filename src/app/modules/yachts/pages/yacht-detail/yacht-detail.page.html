@@ -13,7 +13,7 @@
                 <mat-card-title>{{yacht.name}}</mat-card-title>
                 <div class="flex-spacer"></div>
                 <div class="yacht-actions">
-                    {{yacht.likes}}
+                  
                     <mat-icon matTooltip="{{(canVote ? 'canVote' : 'cannotVote') | translate}}"
                               [matTooltipPosition]="'above'"
                               class="icon__like--red" (click)="like(yacht)">favorite
