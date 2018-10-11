@@ -1,54 +1,55 @@
-<div id="left">
+<div> 
   <h2 class="header__title">{{ 'Список яхт' | translate }}</h2>
+  <mat-progress-bar *ngIf="!yachts" class="progress__spinner" mode="indeterminate" [color]="'primary'" [mode]="'indeterminate'">
+  </mat-progress-bar>
   <div>
-    <mat-progress-spinner *ngIf="!yachts"
-                          class="progress__spinner"
-                          [color]="'primary'"
-                          [mode]="'indeterminate'">
-    </mat-progress-spinner>
-    <mat-list>
-      <mat-list-item *ngFor="let yacht of yachts">
-        <img *ngIf="yacht.default" class="cp"
-             (click)="seeYachtDetails(yacht);" mat-list-avatar
-             src="assets/images/yachts/{{yacht.id}}-thumbnail.jpg">
-        <img *ngIf="!yacht.default"
-             (click)="seeYachtDetails(yacht);" mat-list-avatar src="assets/images/yachts/default.png">
-        <h3 mat-line [class.cp]="yacht.default" (click)="seeYachtDetails(yacht);"> {{yacht.name}} </h3>
-        <p mat-line [class.cp]="yacht.default" (click)="seeYachtDetails(yacht);">
-        </p>
-        <div class="yacht-actions">
-         
-          <mat-icon matTooltip="{{(canVote ? 'canVote' : 'cannotVote') | translate}}"
-                    [matTooltipPosition]="'above'"
-                    class="icon__like--red" (click)="like(yacht)">
-            favorite
-          </mat-icon>
-          <mat-icon class="icon__remove" *ngIf="!yacht.default"
-                    (click)="remove(yacht);">
-            delete
-          </mat-icon>
-        </div>
-      </mat-list-item>
-    </mat-list>
+      <mat-grid-list cols="4" rowHeight="700px">
+          <mat-grid-tile
+              *ngFor="let tile of tiles"
+              [colspan]="tile.cols"
+              [rowspan]="tile.rows">
+              <mat-card (click)="seeYachtDetails(yacht);"
+              style="margin: 15px; height: 500px;">
+                  <mat-card-header>
+                    <mat-card-title>{{tile.yacht.name}}</mat-card-title>
+                    <mat-card-subtitle>{{tile.yacht.price}}</mat-card-subtitle>
+                  </mat-card-header>
+                  <img mat-card-image src="assets/images/yachts/{{tile.yacht.id}}-thumbnail.jpg" style="height: 300px;">
+                  <!-- <img mat-card-lg-image src="assets/images/yachts/default.png"> -->
+                  <mat-card-content>
+                    <p>{{tile.yacht.descritption}}</p>
+                  </mat-card-content>
+                  <mat-card-actions style="float: right">
+                    <button mat-raised-button color="primary">Детали</button>
+                    <button mat-raised-button>Избранное</button>
+                  </mat-card-actions>
+                  <div *ngIf="false" class="yacht-actions">
+                    <mat-icon matTooltip="{{(canVote ? 'canVote' : 'cannotVote') | translate}}" [matTooltipPosition]="'above'"
+                      class="icon__like--red" (click)="like(yacht)">
+                      favorite
+                    </mat-icon>
+                    <mat-icon class="icon__remove" (click)="remove(yacht);">
+                      delete
+                    </mat-icon>
+                  </div>
+                </mat-card>
+          </mat-grid-tile>
+        </mat-grid-list>
   </div>
 </div>
-<div id="right">
+<div *ngIf="false" id="right">
   <h2 class="header__title">{{ 'createYacht' | translate }}</h2>
   <div>
     <form [formGroup]="newYachtForm" #form="ngForm" (ngSubmit)="createNewYacht(newYachtForm.value)">
       <mat-form-field class="input-container">
-        <input matInput type="text"
-               placeholder="{{'name' | translate}}"
-               formControlName="name">
+        <input matInput type="text" placeholder="{{'name' | translate}}" formControlName="name">
         <mat-error *ngIf="!newYachtForm.controls.name.valid && newYachtForm.controls.name.touched">
           {{'nameRequired' | translate}}
         </mat-error>
       </mat-form-field>
 
       <mat-form-field class="input-container">
-        <input matInput type="text"
-               placeholder="{{'realName' | translate}}"
-               formControlName="alterEgo">
+        <input matInput type="text" placeholder="{{'realName' | translate}}" formControlName="alterEgo">
         <mat-error *ngIf="!newYachtForm.controls.alterEgo.valid && newYachtForm.controls.alterEgo.touched">
           {{'realNameRequired' | translate}}
         </mat-error>

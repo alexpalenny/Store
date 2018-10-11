@@ -1,11 +1,11 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {Yacht} from '../../shared/yacht.model';
-import {YachtService} from '../../shared/yacht.service';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {MatDialog} from '@angular/material';
-import {Router} from '@angular/router';
-import {LoggerService} from '../../../../core/services/logger.service';
-import {AppConfig} from '../../../../config/app.config';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Yacht } from '../../shared/yacht.model';
+import { YachtService } from '../../shared/yacht.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material';
+import { Router } from '@angular/router';
+import { LoggerService } from '../../../../core/services/logger.service';
+import { AppConfig } from '../../../../config/app.config';
 //import {YachtRemoveComponent} from '../../components/yacht-remove/yacht-remove.component';
 
 @Component({
@@ -15,7 +15,7 @@ import {AppConfig} from '../../../../config/app.config';
 })
 
 export class YachtsListPage implements OnInit {
-
+  tiles: any[];
   yachts: Yacht[];
   newYachtForm: FormGroup;
   canVote = false;
@@ -23,9 +23,9 @@ export class YachtsListPage implements OnInit {
   @ViewChild('form') myNgForm; // just to call resetForm method
 
   constructor(private yachtService: YachtService,
-              private dialog: MatDialog,
-              private router: Router,
-              private formBuilder: FormBuilder) {
+    private dialog: MatDialog,
+    private router: Router,
+    private formBuilder: FormBuilder) {
     this.canVote = YachtService.checkIfUserCanVote();
 
     this.newYachtForm = this.formBuilder.group({
@@ -39,6 +39,7 @@ export class YachtsListPage implements OnInit {
       this.yachts = yachts.sort((a, b) => {
         return b.length - a.length;
       });
+      this.tiles = [{ cols: 1, rows: 1, yacht: this.yachts[0] }, { cols: 1, rows: 1, yacht: this.yachts[1] }, { cols: 1, rows: 1, yacht: this.yachts[2] } ]
     });
   }
 
