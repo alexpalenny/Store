@@ -1,4 +1,4 @@
-<h1 class="header__title">{{'yachtDetail' | translate}}</h1>
+<h1 class="header__title">{{'Подробно о яхте: ' + yacht.name | translate}}</h1>
 <mat-progress-spinner *ngIf="!yacht"
                       class="progress__spinner"
                       [color]="'primary'"
@@ -8,9 +8,6 @@
     <ng-container>
         <mat-card class="yacht-card">
             <mat-card-header>
-                <div mat-card-avatar class="yacht-header__image"
-                     [ngStyle]="{'background-image': 'url(assets/images/yachts/' + yacht.id + '-thumbnail.jpg)'}"></div>
-                <mat-card-title>{{yacht.name}}</mat-card-title>
                 <div class="flex-spacer"></div>
                 <div class="yacht-actions">
                   

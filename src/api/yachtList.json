@@ -1,5 +1,6 @@
 [
     {
+        "id": 1,
         "name": "Фортуна",
         "length": "14 м",
         "beam": "3.5",
@@ -12,6 +13,7 @@
         "default": true
     },
     {
+        "id": 2,
         "name": "Нирвана",
         "length": "10 м",
         "beam": "3",
@@ -24,6 +26,7 @@
         "default": true
     },
     {
+        "id": 3,
         "name": "Ники",
         "length": "7.5 м",
         "beam": "2.1",

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AppConfig } from '../../../config/app.config';
 import { Yacht } from './yacht.model';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, tap, map } from 'rxjs/operators';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
 import { TranslateService } from '@ngx-translate/core';
 import { _ } from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
@@ -49,11 +49,16 @@ export class YachtService {
   }
 
   getYachtById(id: string): Observable<Yacht> {
-    const url = `${this.yachtsUrl}/${id}`;
-    return this.http.get<Yacht>(url).pipe(
-      tap(() => LoggerService.log(`fetched yacht id=${id}`)),
-      catchError(YachtService.handleError<Yacht>(`getYacht id=${id}`))
+    // const url = `${this.yachtsUrl}/${id}`;
+    // return this.http.get<Yacht>(url).pipe(
+    //   tap(() => LoggerService.log(`fetched yacht id=${id}`)),
+    //   catchError(YachtService.handleError<Yacht>(`getYacht id=${id}`))
+    // );
+    var index = +id - 1;
+    return this.http.get<Yacht>(this.yachtsUrl).pipe(
+      map(val => val[index])
     );
+
   }
 
   createYacht(yacht: Yacht): Observable<Yacht> {
