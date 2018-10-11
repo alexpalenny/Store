@@ -54,11 +54,9 @@ export class YachtService {
     //   tap(() => LoggerService.log(`fetched yacht id=${id}`)),
     //   catchError(YachtService.handleError<Yacht>(`getYacht id=${id}`))
     // );
-    var index = +id - 1;
-    return this.http.get<Yacht>(this.yachtsUrl).pipe(
-      map(val => val[index])
+    return this.http.get(this.yachtsUrl).pipe(
+      map(yachts => (yachts as Yacht[]).find(yacht => yacht.id == +id))
     );
-
   }
 
   createYacht(yacht: Yacht): Observable<Yacht> {
