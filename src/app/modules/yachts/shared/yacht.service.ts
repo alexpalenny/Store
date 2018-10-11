@@ -8,7 +8,6 @@ import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
 import { TranslateService } from '@ngx-translate/core';
 import { _ } from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
 import { LoggerService } from '../../../core/services/logger.service';
-import { yachtJsonList } from './yachtList.json';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -46,41 +45,7 @@ export class YachtService {
   }
 
   getYachts(): Observable<Yacht[]> {
-    return Observable.create((observer: Yacht[]) => {
-      debugger;
-      let yachts = yachtJsonList;
-      let yachtObjs = yachts.map((yacht: any) => {
-        return Object.assign(new Yacht, yacht);
-      })
-      observer.next(yachtObjs);
-      // observer.next([new Yacht(1,
-      //   "Фортуна",
-      //   "Парусно-моторные",
-      //   14,
-      //   3.5,
-      //   "На борту спальня и каюткомпания, гальюн, холодильник, газовая плита, телевизор, музыка. Имеются удочки для рыбалки, ласты и маска, для желающих нырнуть.",
-      //   2500,
-      //   2,
-      //   "Наличными",
-      //   10
-      // ),
-      // new Yacht(1,
-      //   "Фортуна",
-      //   "Парусно-моторные",
-      //   14,
-      //   3.5,
-      //   "На борту спальня и каюткомпания, гальюн, холодильник, газовая плита, телевизор, музыка. Имеются удочки для рыбалки, ласты и маска, для желающих нырнуть.",
-      //   2500,
-      //   2,
-      //   "Наличными",
-      //   10
-      // )]);
-    });
-    // this.http.get<Yacht[]>(this.yachtsUrl)
-    //   .pipe(
-    //     tap(() => LoggerService.log(`fetched yachts`)),
-    //     catchError(YachtService.handleError('getYachts', []))
-    //   );
+    return this.http.get<Yacht[]>(this.yachtsUrl);
   }
 
   getYachtById(id: string): Observable<Yacht> {

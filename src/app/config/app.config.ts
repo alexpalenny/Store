@@ -12,7 +12,7 @@ export const AppConfig: IAppConfig = {
   },
   endpoints: {
     heroes: 'https://nodejs-example-app.herokuapp.com/heroes',
-    yachts: ''
+    yachts: 'api/yachtList.json'
   },
   votesLimit: 3,
   topHeroesLimit: 4,
