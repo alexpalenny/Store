@@ -39,7 +39,6 @@ export class YachtsListPage implements OnInit {
       this.yachts = yachts.sort((a, b) => {
         return b.length - a.length;
       });
-      this.tiles = [{ cols: 1, rows: 1, yacht: this.yachts[0] }, { cols: 1, rows: 1, yacht: this.yachts[1] }, { cols: 1, rows: 1, yacht: this.yachts[2] } ]
     });
   }
 
