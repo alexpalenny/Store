@@ -1,20 +1,20 @@
-<div fxLayout="column" fxLayoutGap="20px">
+<div>
   <h2 class="header__title">{{ 'Список яхт' | translate }}</h2>
   <mat-progress-bar *ngIf="!yachts" class="progress__spinner" mode="indeterminate" [color]="'primary'" [mode]="'indeterminate'">
   </mat-progress-bar>
-  <div fxLayout="row wrap" fxLayout.sm="column" fxLayout.xs="column" fxLayoutWrap fxLayoutAlign="center" fxLayoutGap="20px">
-    <mat-card fxLayout="column" fxLayoutAlign.sm="center" fxLayoutGap="10px" fxFlex="400px" fxFlex.xs="300" *ngFor="let yacht of yachts"
+  <div class="cards-container">
+    <mat-card *ngFor="let yacht of yachts"
       (click)="seeYachtDetails(yacht);" style="margin-bottom: 0 25px;">
-      <mat-card-header fxFlex="20">
+      <mat-card-header>
         <mat-card-title>{{yacht.name}}</mat-card-title>
         <mat-card-subtitle>{{yacht.price}}</mat-card-subtitle>
       </mat-card-header>
-      <img fxLayoutAlign="center" mat-card-image src="assets/images/yachts/{{yacht.id}}-thumbnail.jpg" style="max-width: 400px; height: 300px;">
+      <img mat-card-image src="assets/images/yachts/{{yacht.id}}-thumbnail.jpg">
       <!-- <img mat-card-lg-image src="assets/images/yachts/default.png"> -->
       <mat-card-content>
         {{yacht.descritption}}
       </mat-card-content>
-      <mat-card-actions fxFlex="30" fxLayout="row" fxLayoutAlign="end end">
+      <mat-card-actions>
         <button mat-raised-button>Избранное</button>
         <button mat-raised-button color="primary">Детали</button>
       </mat-card-actions>

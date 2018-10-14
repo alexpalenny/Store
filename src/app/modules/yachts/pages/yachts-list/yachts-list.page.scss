@@ -74,3 +74,55 @@ form {
     padding: 0;
   }
 }
+
+.cards-container {
+  width: 75%;
+  margin: 1em auto 1em auto;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-gap: 1em;
+  grid-auto-rows: minmax(400px, auto);
+  display: -ms-grid;
+  -ms-justify-content: center;
+  -ms-grid-template-columns: repeat(auto-fill, 300px);
+  -ms-grid-gap: 1em;
+  -ms-grid-auto-rows: minmax(450px, auto);
+}
+mat-card {
+  display: grid;
+}
+
+mat-card-actions {
+  justify-self: end;
+  align-self: end;
+}
+@media (max-width: 900px) {
+  .cards-container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 680px) {
+  .cards-container {
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-auto-rows: minmax(400px, auto);
+    -ms-grid-template-columns: 1fr;
+    -ms-grid-auto-rows: minmax(450px, auto);
+  }
+  mat-card-actions {
+    display: grid;
+    display: -ms-grid;
+    justify-self: stretch;
+    align-self: end;
+    grid-gap: 0.5em;
+    -ms-grid-gap: 0.5em;
+    -ms-justify-self: stretch;
+    -ms-align-self: end;
+  }
+  mat-card-actions button {
+    width: 100%;
+    margin: 0;
+  }
+}
