@@ -93,6 +93,10 @@ mat-card {
   display: grid;
 }
 
+mat-icon {
+  margin-right: 0.3em;
+}
+
 mat-card-actions {
   justify-self: end;
   align-self: end;
