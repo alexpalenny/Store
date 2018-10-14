@@ -1,5 +1,5 @@
-Connection string
-Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;
+--Connection string
+--Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;
 
 
 
