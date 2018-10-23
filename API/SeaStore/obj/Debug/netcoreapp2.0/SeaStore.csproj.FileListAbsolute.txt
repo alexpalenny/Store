@@ -1,0 +1,11 @@
+C:\Users\alikp\Desktop\Store\API\SeaStore\bin\Debug\netcoreapp2.0\SeaStore.deps.json
+C:\Users\alikp\Desktop\Store\API\SeaStore\bin\Debug\netcoreapp2.0\SeaStore.runtimeconfig.json
+C:\Users\alikp\Desktop\Store\API\SeaStore\bin\Debug\netcoreapp2.0\SeaStore.runtimeconfig.dev.json
+C:\Users\alikp\Desktop\Store\API\SeaStore\bin\Debug\netcoreapp2.0\SeaStore.dll
+C:\Users\alikp\Desktop\Store\API\SeaStore\bin\Debug\netcoreapp2.0\SeaStore.pdb
+C:\Users\alikp\Desktop\Store\API\SeaStore\obj\Debug\netcoreapp2.0\SeaStore.csprojAssemblyReference.cache
+C:\Users\alikp\Desktop\Store\API\SeaStore\obj\Debug\netcoreapp2.0\SeaStore.csproj.CoreCompileInputs.cache
+C:\Users\alikp\Desktop\Store\API\SeaStore\obj\Debug\netcoreapp2.0\SeaStore.AssemblyInfoInputs.cache
+C:\Users\alikp\Desktop\Store\API\SeaStore\obj\Debug\netcoreapp2.0\SeaStore.AssemblyInfo.cs
+C:\Users\alikp\Desktop\Store\API\SeaStore\obj\Debug\netcoreapp2.0\SeaStore.dll
+C:\Users\alikp\Desktop\Store\API\SeaStore\obj\Debug\netcoreapp2.0\SeaStore.pdb

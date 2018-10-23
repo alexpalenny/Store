@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  seastore:
+    image: ${DOCKER_REGISTRY}seastore
+    build:
+      context: .
+      dockerfile: SeaStore\Dockerfile
