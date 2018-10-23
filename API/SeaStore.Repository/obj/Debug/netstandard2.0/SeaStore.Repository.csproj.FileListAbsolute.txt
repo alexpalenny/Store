@@ -1,0 +1,16 @@
+C:\Users\Alex\Desktop\Store\API\SeaStore.Repository\bin\Debug\netstandard2.0\SeaStore.Repository.deps.json
+C:\Users\Alex\Desktop\Store\API\SeaStore.Repository\bin\Debug\netstandard2.0\SeaStore.Repository.dll
+C:\Users\Alex\Desktop\Store\API\SeaStore.Repository\bin\Debug\netstandard2.0\SeaStore.Repository.pdb
+C:\Users\Alex\Desktop\Store\API\SeaStore.Repository\bin\Debug\netstandard2.0\SeaStore.Dto.dll
+C:\Users\Alex\Desktop\Store\API\SeaStore.Repository\bin\Debug\netstandard2.0\SeaStore.FilterQuery.dll
+C:\Users\Alex\Desktop\Store\API\SeaStore.Repository\bin\Debug\netstandard2.0\SeaStore.Model.dll
+C:\Users\Alex\Desktop\Store\API\SeaStore.Repository\bin\Debug\netstandard2.0\SeaStore.Dto.pdb
+C:\Users\Alex\Desktop\Store\API\SeaStore.Repository\bin\Debug\netstandard2.0\SeaStore.Model.pdb
+C:\Users\Alex\Desktop\Store\API\SeaStore.Repository\bin\Debug\netstandard2.0\SeaStore.FilterQuery.pdb
+C:\Users\Alex\Desktop\Store\API\SeaStore.Repository\obj\Debug\netstandard2.0\SeaStore.Repository.csprojResolveAssemblyReference.cache
+C:\Users\Alex\Desktop\Store\API\SeaStore.Repository\obj\Debug\netstandard2.0\SeaStore.Repository.csproj.CoreCompileInputs.cache
+C:\Users\Alex\Desktop\Store\API\SeaStore.Repository\obj\Debug\netstandard2.0\SeaStore.Repository.AssemblyInfoInputs.cache
+C:\Users\Alex\Desktop\Store\API\SeaStore.Repository\obj\Debug\netstandard2.0\SeaStore.Repository.AssemblyInfo.cs
+C:\Users\Alex\Desktop\Store\API\SeaStore.Repository\obj\Debug\netstandard2.0\SeaStore.Repository.dll
+C:\Users\Alex\Desktop\Store\API\SeaStore.Repository\obj\Debug\netstandard2.0\SeaStore.Repository.pdb
+C:\Users\Alex\Desktop\Store\API\SeaStore.Repository\bin\Debug\netstandard2.0\SeaStore.Entities.dll

@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SeaStore.Dto\SeaStore.Dto.csproj" />
+    <ProjectReference Include="..\SeaStore.Entities\SeaStore.Entities.csproj" />
+    <ProjectReference Include="..\SeaStore.FilterQuery\SeaStore.FilterQuery.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DtoMapperProfiles\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="UnitOfWork\" />
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="7.0.1" />
+  </ItemGroup>
+
+</Project>

@@ -1,1 +1,2 @@
 C:\Users\alikp\Desktop\Store\API\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
+C:\Users\Alex\Desktop\Store\API\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache

@@ -1,11 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27703.2042
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeaStore", "SeaStore\SeaStore.csproj", "{526A5D91-BC92-4DE6-B009-F536BBEF3687}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeaStore.Api", "SeaStore.Api\SeaStore.Api.csproj", "{526A5D91-BC92-4DE6-B009-F536BBEF3687}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{1B38D513-C9EF-46DF-AC4F-82BCD442F3DD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeaStore.Entities", "SeaStore.Entities\SeaStore.Entities.csproj", "{C6B8B209-B05A-4A89-9A7F-9C463EADD5B9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeaStore.Dto", "SeaStore.Dto\SeaStore.Dto.csproj", "{13650533-EBF9-47C7-8A80-7AFFD49D89D1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeaStore.Repository", "SeaStore.Repository\SeaStore.Repository.csproj", "{5290E29A-0D82-4089-BE53-1F50DEE362DB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeaStore.Services", "SeaStore.Services\SeaStore.Services.csproj", "{3BED63EF-3391-40A5-BA66-67B28569AFC4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeaStore.FilterQuery", "SeaStore.FilterQuery\SeaStore.FilterQuery.csproj", "{9BC0AFC4-AACB-461F-A5FF-7232D6993F07}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +31,26 @@ Global
 		{1B38D513-C9EF-46DF-AC4F-82BCD442F3DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B38D513-C9EF-46DF-AC4F-82BCD442F3DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B38D513-C9EF-46DF-AC4F-82BCD442F3DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6B8B209-B05A-4A89-9A7F-9C463EADD5B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6B8B209-B05A-4A89-9A7F-9C463EADD5B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6B8B209-B05A-4A89-9A7F-9C463EADD5B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6B8B209-B05A-4A89-9A7F-9C463EADD5B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13650533-EBF9-47C7-8A80-7AFFD49D89D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13650533-EBF9-47C7-8A80-7AFFD49D89D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13650533-EBF9-47C7-8A80-7AFFD49D89D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13650533-EBF9-47C7-8A80-7AFFD49D89D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5290E29A-0D82-4089-BE53-1F50DEE362DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5290E29A-0D82-4089-BE53-1F50DEE362DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5290E29A-0D82-4089-BE53-1F50DEE362DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5290E29A-0D82-4089-BE53-1F50DEE362DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BED63EF-3391-40A5-BA66-67B28569AFC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BED63EF-3391-40A5-BA66-67B28569AFC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BED63EF-3391-40A5-BA66-67B28569AFC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BED63EF-3391-40A5-BA66-67B28569AFC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BC0AFC4-AACB-461F-A5FF-7232D6993F07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BC0AFC4-AACB-461F-A5FF-7232D6993F07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BC0AFC4-AACB-461F-A5FF-7232D6993F07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BC0AFC4-AACB-461F-A5FF-7232D6993F07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

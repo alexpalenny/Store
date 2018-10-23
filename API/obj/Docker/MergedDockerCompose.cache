@@ -5,7 +5,7 @@ networks:
 services:
   seastore:
     build:
-      context: C:\Users\alikp\Desktop\Store\API
+      context: C:\Users\Alex\Desktop\Store\API
       dockerfile: SeaStore\Dockerfile
     environment:
       ASPNETCORE_ENVIRONMENT: Development
