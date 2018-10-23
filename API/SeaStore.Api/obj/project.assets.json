@@ -2,6 +2,32 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.0": {
+      "AspNet.Security.OAuth.Validation/2.0.0-rc3-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication": "2.0.0",
+          "Newtonsoft.Json": "10.0.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/AspNet.Security.OAuth.Validation.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/AspNet.Security.OAuth.Validation.dll": {}
+        }
+      },
+      "AspNet.Security.OpenIdConnect.Primitives/2.0.0-rc3-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "2.0.0",
+          "Newtonsoft.Json": "10.0.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/AspNet.Security.OpenIdConnect.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/AspNet.Security.OpenIdConnect.Primitives.dll": {}
+        }
+      },
       "AutoMapper/7.0.1": {
         "type": "package",
         "dependencies": {
@@ -3090,6 +3116,35 @@
           "lib/netstandard1.5/StackExchange.Redis.StrongName.dll": {}
         }
       },
+      "Swagger/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Core": "1.0.0",
+          "Microsoft.AspNetCore.Mvc.Formatters.Json": "1.0.0"
+        },
+        "compile": {
+          "lib/netstandard1.6/Swashbuckle.Swagger.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.6/Swashbuckle.Swagger.dll": {}
+        }
+      },
+      "Swashbuckle.AspNetCore.SwaggerUI/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Routing": "1.0.4",
+          "Microsoft.AspNetCore.StaticFiles": "1.0.4",
+          "Microsoft.Extensions.FileProviders.Embedded": "1.0.1",
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.6/Swashbuckle.AspNetCore.SwaggerUI.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.6/Swashbuckle.AspNetCore.SwaggerUI.dll": {}
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -4694,6 +4749,10 @@
       "SeaStore.Entities/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "2.0.0",
+          "Microsoft.Extensions.Configuration": "2.0.0"
+        },
         "compile": {
           "bin/placeholder/SeaStore.Entities.dll": {}
         },
@@ -4744,6 +4803,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Microsoft.Extensions.Configuration": "2.0.0",
           "SeaStore.Dto": "1.0.0",
           "SeaStore.Entities": "1.0.0",
           "SeaStore.FilterQuery": "1.0.0",
@@ -4759,6 +4819,28 @@
     }
   },
   "libraries": {
+    "AspNet.Security.OAuth.Validation/2.0.0-rc3-final": {
+      "sha512": "S/1gvmQa/Lgl9Iji7FBpHgjtn257nnk7bHr6az78pstb4UtvavS+d0u4gE4d7mZ2AojAze/987JIIPmmw5Iwbw==",
+      "type": "package",
+      "path": "aspnet.security.oauth.validation/2.0.0-rc3-final",
+      "files": [
+        "aspnet.security.oauth.validation.2.0.0-rc3-final.nupkg.sha512",
+        "aspnet.security.oauth.validation.nuspec",
+        "lib/netstandard2.0/AspNet.Security.OAuth.Validation.dll",
+        "lib/netstandard2.0/AspNet.Security.OAuth.Validation.xml"
+      ]
+    },
+    "AspNet.Security.OpenIdConnect.Primitives/2.0.0-rc3-final": {
+      "sha512": "OpS+5m5DHgpsF90zR8eLdCOTd7IpY8aBLiOYBkHCvcCp4KGs8CfNw0xFzAkqo5W+5W0soM4KY9kWb+8T440P9g==",
+      "type": "package",
+      "path": "aspnet.security.openidconnect.primitives/2.0.0-rc3-final",
+      "files": [
+        "aspnet.security.openidconnect.primitives.2.0.0-rc3-final.nupkg.sha512",
+        "aspnet.security.openidconnect.primitives.nuspec",
+        "lib/netstandard2.0/AspNet.Security.OpenIdConnect.Primitives.dll",
+        "lib/netstandard2.0/AspNet.Security.OpenIdConnect.Primitives.xml"
+      ]
+    },
     "AutoMapper/7.0.1": {
       "sha512": "6xHbhsW09sWjjYuE1sqhYn25PQzB6UEUVPME5uhlaIz2NR2+L3+FGbVxvknJKug1BLp6VTLxDb5RcGXKMm0ieQ==",
       "type": "package",
@@ -8035,6 +8117,31 @@
         "lib/netstandard1.5/StackExchange.Redis.StrongName.xml",
         "stackexchange.redis.strongname.1.2.4.nupkg.sha512",
         "stackexchange.redis.strongname.nuspec"
+      ]
+    },
+    "Swagger/1.0.0": {
+      "sha512": "iOhbrhPbBpvvQOv63lgC669tti+6Tt5bW7QZkoNqFMc1WkqhBEehnOkAPKK+7s8SGAQa5uLhUU41E/wAFMvmsA==",
+      "type": "package",
+      "path": "swagger/1.0.0",
+      "files": [
+        "lib/net451/_._",
+        "lib/netstandard1.6/Swashbuckle.Swagger.dll",
+        "swagger.1.0.0.nupkg.sha512",
+        "swagger.nuspec"
+      ]
+    },
+    "Swashbuckle.AspNetCore.SwaggerUI/3.0.0": {
+      "sha512": "rmQEdp6njngOGs/0nT2g2olygKiG+SdDVf4Ju7y7Pn6JoiGZ5VukrzaCnPxOvEOkq1vJeV8QCTaNytlTwHaBvQ==",
+      "type": "package",
+      "path": "swashbuckle.aspnetcore.swaggerui/3.0.0",
+      "files": [
+        ".signature.p7s",
+        "lib/net451/Swashbuckle.AspNetCore.SwaggerUI.dll",
+        "lib/net451/Swashbuckle.AspNetCore.SwaggerUI.xml",
+        "lib/netstandard1.6/Swashbuckle.AspNetCore.SwaggerUI.dll",
+        "lib/netstandard1.6/Swashbuckle.AspNetCore.SwaggerUI.xml",
+        "swashbuckle.aspnetcore.swaggerui.3.0.0.nupkg.sha512",
+        "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
     },
     "System.AppContext/4.3.0": {
@@ -12475,11 +12582,16 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "AspNet.Security.OAuth.Validation >= 2.0.0-rc3-final",
+      "AspNet.Security.OpenIdConnect.Primitives >= 2.0.0-rc3-final",
       "Microsoft.AspNetCore.All >= 2.0.0",
+      "Microsoft.AspNetCore.Identity >= 2.0.0",
       "Microsoft.NETCore.App >= 2.0.0",
       "SeaStore.Dto >= 1.0.0",
       "SeaStore.FilterQuery >= 1.0.0",
-      "SeaStore.Services >= 1.0.0"
+      "SeaStore.Services >= 1.0.0",
+      "Swagger >= 1.0.0",
+      "Swashbuckle.AspNetCore.SwaggerUI >= 3.0.0"
     ]
   },
   "packageFolders": {
@@ -12536,12 +12648,32 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
+          "Swagger": {
+            "target": "Package",
+            "version": "1.0.0"
+          },
+          "Swashbuckle.AspNetCore.SwaggerUI": {
+            "target": "Package",
+            "version": "3.0.0"
+          },
+          "AspNet.Security.OpenIdConnect.Primitives": {
+            "target": "Package",
+            "version": "2.0.0-rc3-final"
+          },
           "Microsoft.NETCore.App": {
             "target": "Package",
             "version": "2.0",
             "autoReferenced": true
           },
           "Microsoft.AspNetCore.All": {
+            "target": "Package",
+            "version": "2.0.0"
+          },
+          "AspNet.Security.OAuth.Validation": {
+            "target": "Package",
+            "version": "2.0.0-rc3-final"
+          },
+          "Microsoft.AspNetCore.Identity": {
             "target": "Package",
             "version": "2.0.0"
           }

@@ -22,11 +22,11 @@ C:\Users\Alex\Desktop\Store\API\SeaStore.Api\obj\Debug\netcoreapp2.0\SeaStore.Ap
 C:\Users\Alex\Desktop\Store\API\SeaStore.Api\obj\Debug\netcoreapp2.0\SeaStore.Api.pdb
 C:\Users\Alex\Desktop\Store\API\SeaStore.Api\bin\Debug\netcoreapp2.0\SeaStore.Dto.dll
 C:\Users\Alex\Desktop\Store\API\SeaStore.Api\bin\Debug\netcoreapp2.0\SeaStore.FilterQuery.dll
-C:\Users\Alex\Desktop\Store\API\SeaStore.Api\bin\Debug\netcoreapp2.0\SeaStore.Model.dll
 C:\Users\Alex\Desktop\Store\API\SeaStore.Api\bin\Debug\netcoreapp2.0\SeaStore.Repository.dll
 C:\Users\Alex\Desktop\Store\API\SeaStore.Api\bin\Debug\netcoreapp2.0\SeaStore.Services.dll
 C:\Users\Alex\Desktop\Store\API\SeaStore.Api\bin\Debug\netcoreapp2.0\SeaStore.Dto.pdb
 C:\Users\Alex\Desktop\Store\API\SeaStore.Api\bin\Debug\netcoreapp2.0\SeaStore.FilterQuery.pdb
 C:\Users\Alex\Desktop\Store\API\SeaStore.Api\bin\Debug\netcoreapp2.0\SeaStore.Services.pdb
-C:\Users\Alex\Desktop\Store\API\SeaStore.Api\bin\Debug\netcoreapp2.0\SeaStore.Model.pdb
 C:\Users\Alex\Desktop\Store\API\SeaStore.Api\bin\Debug\netcoreapp2.0\SeaStore.Repository.pdb
+C:\Users\Alex\Desktop\Store\API\SeaStore.Api\bin\Debug\netcoreapp2.0\SeaStore.Entities.dll
+C:\Users\Alex\Desktop\Store\API\SeaStore.Api\bin\Debug\netcoreapp2.0\SeaStore.Entities.pdb
