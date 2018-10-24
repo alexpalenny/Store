@@ -1,9 +1,0 @@
-C:\Users\Alex\Desktop\GIT\Aya.Core.Api\Aya.Core.FilterQuery\bin\Release\netstandard2.0\Aya.Core.FilterQuery.deps.json
-C:\Users\Alex\Desktop\GIT\Aya.Core.Api\Aya.Core.FilterQuery\bin\Release\netstandard2.0\Aya.Core.FilterQuery.dll
-C:\Users\Alex\Desktop\GIT\Aya.Core.Api\Aya.Core.FilterQuery\bin\Release\netstandard2.0\Aya.Core.FilterQuery.pdb
-C:\Users\Alex\Desktop\GIT\Aya.Core.Api\Aya.Core.FilterQuery\obj\Release\netstandard2.0\Aya.Core.FilterQuery.csprojResolveAssemblyReference.cache
-C:\Users\Alex\Desktop\GIT\Aya.Core.Api\Aya.Core.FilterQuery\obj\Release\netstandard2.0\Aya.Core.FilterQuery.csproj.CoreCompileInputs.cache
-C:\Users\Alex\Desktop\GIT\Aya.Core.Api\Aya.Core.FilterQuery\obj\Release\netstandard2.0\Aya.Core.FilterQuery.AssemblyInfoInputs.cache
-C:\Users\Alex\Desktop\GIT\Aya.Core.Api\Aya.Core.FilterQuery\obj\Release\netstandard2.0\Aya.Core.FilterQuery.AssemblyInfo.cs
-C:\Users\Alex\Desktop\GIT\Aya.Core.Api\Aya.Core.FilterQuery\obj\Release\netstandard2.0\Aya.Core.FilterQuery.dll
-C:\Users\Alex\Desktop\GIT\Aya.Core.Api\Aya.Core.FilterQuery\obj\Release\netstandard2.0\Aya.Core.FilterQuery.pdb

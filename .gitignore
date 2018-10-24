@@ -282,3 +282,17 @@ API/Thumbs.db
 /.cr
 API/.build/
 
+/API/.vs
+/API/SeaStore.Api/bin
+/API/SeaStore.Api/obj
+/API/SeaStore.Dto/obj
+/API/SeaStore.Dto/bin
+/API/SeaStore.Entities/obj
+/API/SeaStore.Entities/bin
+/API/SeaStore.FilterQuery/obj
+/API/SeaStore.FilterQuery/bin
+/API/SeaStore.Repository/bin
+/API/SeaStore.Repository/obj
+/API/SeaStore.Services/bin
+/API/SeaStore.Services/obj
+/API/obj
