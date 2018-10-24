@@ -14,7 +14,6 @@ C:\Users\Alex\Desktop\Store\API\SeaStore.Api\bin\Debug\netcoreapp2.0\SeaStore.Ap
 C:\Users\Alex\Desktop\Store\API\SeaStore.Api\bin\Debug\netcoreapp2.0\SeaStore.Api.runtimeconfig.dev.json
 C:\Users\Alex\Desktop\Store\API\SeaStore.Api\bin\Debug\netcoreapp2.0\SeaStore.Api.dll
 C:\Users\Alex\Desktop\Store\API\SeaStore.Api\bin\Debug\netcoreapp2.0\SeaStore.Api.pdb
-C:\Users\Alex\Desktop\Store\API\SeaStore.Api\obj\Debug\netcoreapp2.0\SeaStore.Api.csprojResolveAssemblyReference.cache
 C:\Users\Alex\Desktop\Store\API\SeaStore.Api\obj\Debug\netcoreapp2.0\SeaStore.Api.csproj.CoreCompileInputs.cache
 C:\Users\Alex\Desktop\Store\API\SeaStore.Api\obj\Debug\netcoreapp2.0\SeaStore.Api.AssemblyInfoInputs.cache
 C:\Users\Alex\Desktop\Store\API\SeaStore.Api\obj\Debug\netcoreapp2.0\SeaStore.Api.AssemblyInfo.cs
@@ -30,3 +29,4 @@ C:\Users\Alex\Desktop\Store\API\SeaStore.Api\bin\Debug\netcoreapp2.0\SeaStore.Se
 C:\Users\Alex\Desktop\Store\API\SeaStore.Api\bin\Debug\netcoreapp2.0\SeaStore.Repository.pdb
 C:\Users\Alex\Desktop\Store\API\SeaStore.Api\bin\Debug\netcoreapp2.0\SeaStore.Entities.dll
 C:\Users\Alex\Desktop\Store\API\SeaStore.Api\bin\Debug\netcoreapp2.0\SeaStore.Entities.pdb
+C:\Users\Alex\Desktop\Store\API\SeaStore.Api\obj\Debug\netcoreapp2.0\SeaStore.Api.csprojResolveAssemblyReference.cache

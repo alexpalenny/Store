@@ -7,7 +7,6 @@ C:\Users\Alex\Desktop\Store\API\SeaStore.Services\bin\Debug\netstandard2.0\SeaSt
 C:\Users\Alex\Desktop\Store\API\SeaStore.Services\bin\Debug\netstandard2.0\SeaStore.Dto.pdb
 C:\Users\Alex\Desktop\Store\API\SeaStore.Services\bin\Debug\netstandard2.0\SeaStore.FilterQuery.pdb
 C:\Users\Alex\Desktop\Store\API\SeaStore.Services\bin\Debug\netstandard2.0\SeaStore.Repository.pdb
-C:\Users\Alex\Desktop\Store\API\SeaStore.Services\obj\Debug\netstandard2.0\SeaStore.Services.csprojResolveAssemblyReference.cache
 C:\Users\Alex\Desktop\Store\API\SeaStore.Services\obj\Debug\netstandard2.0\SeaStore.Services.csproj.CoreCompileInputs.cache
 C:\Users\Alex\Desktop\Store\API\SeaStore.Services\obj\Debug\netstandard2.0\SeaStore.Services.AssemblyInfoInputs.cache
 C:\Users\Alex\Desktop\Store\API\SeaStore.Services\obj\Debug\netstandard2.0\SeaStore.Services.AssemblyInfo.cs
@@ -15,3 +14,4 @@ C:\Users\Alex\Desktop\Store\API\SeaStore.Services\obj\Debug\netstandard2.0\SeaSt
 C:\Users\Alex\Desktop\Store\API\SeaStore.Services\obj\Debug\netstandard2.0\SeaStore.Services.pdb
 C:\Users\Alex\Desktop\Store\API\SeaStore.Services\bin\Debug\netstandard2.0\SeaStore.Entities.dll
 C:\Users\Alex\Desktop\Store\API\SeaStore.Services\bin\Debug\netstandard2.0\SeaStore.Entities.pdb
+C:\Users\Alex\Desktop\Store\API\SeaStore.Services\obj\Debug\netstandard2.0\SeaStore.Services.csprojResolveAssemblyReference.cache

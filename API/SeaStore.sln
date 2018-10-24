@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeaStore.Api", "SeaStore.Api\SeaStore.Api.csproj", "{526A5D91-BC92-4DE6-B009-F536BBEF3687}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{1B38D513-C9EF-46DF-AC4F-82BCD442F3DD}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeaStore.Entities", "SeaStore.Entities\SeaStore.Entities.csproj", "{C6B8B209-B05A-4A89-9A7F-9C463EADD5B9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeaStore.Dto", "SeaStore.Dto\SeaStore.Dto.csproj", "{13650533-EBF9-47C7-8A80-7AFFD49D89D1}"

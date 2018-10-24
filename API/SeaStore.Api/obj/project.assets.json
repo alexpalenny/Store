@@ -40,6 +40,18 @@
           "lib/netcoreapp2.0/AutoMapper.dll": {}
         }
       },
+      "CryptoHelper/3.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Cryptography.KeyDerivation": "2.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/CryptoHelper.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/CryptoHelper.dll": {}
+        }
+      },
       "Libuv/1.10.0": {
         "type": "package",
         "dependencies": {
@@ -567,7 +579,7 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Cors.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Cryptography.Internal/2.0.0": {
+      "Microsoft.AspNetCore.Cryptography.Internal/2.0.1": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.Internal.dll": {}
@@ -576,10 +588,10 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.Internal.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Cryptography.KeyDerivation/2.0.0": {
+      "Microsoft.AspNetCore.Cryptography.KeyDerivation/2.0.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Cryptography.Internal": "2.0.0"
+          "Microsoft.AspNetCore.Cryptography.Internal": "2.0.1"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll": {}
@@ -2745,6 +2757,60 @@
           "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {}
         }
       },
+      "OpenIddict.Abstractions/2.0.0-rc3-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.0.0",
+          "Newtonsoft.Json": "10.0.2",
+          "System.Collections.Immutable": "1.4.0",
+          "System.ComponentModel.Annotations": "4.4.0",
+          "System.Threading.Tasks.Extensions": "4.4.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/OpenIddict.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/OpenIddict.Abstractions.dll": {}
+        }
+      },
+      "OpenIddict.Core/2.0.0-rc3-final": {
+        "type": "package",
+        "dependencies": {
+          "CryptoHelper": "3.0.2",
+          "Microsoft.Extensions.Caching.Memory": "2.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "2.0.0",
+          "OpenIddict.Abstractions": "2.0.0-rc3-final"
+        },
+        "compile": {
+          "lib/netstandard2.0/OpenIddict.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/OpenIddict.Core.dll": {}
+        }
+      },
+      "OpenIddict.EntityFrameworkCore/2.0.0-rc3-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "2.0.0",
+          "OpenIddict.Core": "2.0.0-rc3-final",
+          "OpenIddict.EntityFrameworkCore.Models": "2.0.0-rc3-final"
+        },
+        "compile": {
+          "lib/netstandard2.0/OpenIddict.EntityFrameworkCore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/OpenIddict.EntityFrameworkCore.dll": {}
+        }
+      },
+      "OpenIddict.EntityFrameworkCore.Models/2.0.0-rc3-final": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/OpenIddict.EntityFrameworkCore.Models.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/OpenIddict.EntityFrameworkCore.Models.dll": {}
+        }
+      },
       "Remotion.Linq/2.1.1": {
         "type": "package",
         "dependencies": {
@@ -4750,8 +4816,12 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.0.0",
           "Microsoft.EntityFrameworkCore": "2.0.0",
-          "Microsoft.Extensions.Configuration": "2.0.0"
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.0.0",
+          "Microsoft.EntityFrameworkCore.Tools": "2.0.0",
+          "Microsoft.Extensions.Configuration": "2.0.0",
+          "OpenIddict.EntityFrameworkCore": "2.0.0-rc3-final"
         },
         "compile": {
           "bin/placeholder/SeaStore.Entities.dll": {}
@@ -4860,6 +4930,17 @@
         "lib/netstandard2.0/AutoMapper.dll",
         "lib/netstandard2.0/AutoMapper.pdb",
         "lib/netstandard2.0/AutoMapper.xml"
+      ]
+    },
+    "CryptoHelper/3.0.2": {
+      "sha512": "6xFZdEnhuOmX58TgZAeb20MbddsL8/nR/4CnWhmjMXv9gfpOxD+1bBU7IDtYq2Q8rZJUT6xYWdhW16bKriU2Mw==",
+      "type": "package",
+      "path": "cryptohelper/3.0.2",
+      "files": [
+        "cryptohelper.3.0.2.nupkg.sha512",
+        "cryptohelper.nuspec",
+        "lib/netstandard2.0/CryptoHelper.dll",
+        "lib/netstandard2.0/CryptoHelper.xml"
       ]
     },
     "Libuv/1.10.0": {
@@ -5180,25 +5261,25 @@
         "microsoft.aspnetcore.cors.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Cryptography.Internal/2.0.0": {
-      "sha512": "SY6GQyZZ5o09rqFmy3nhyJzx3lkFDBl0wO2Kb7EoLCPyH6dC7KB+QXysHfa9P5jHPiYB9VEkcQ9H7kQKcXQ1sw==",
+    "Microsoft.AspNetCore.Cryptography.Internal/2.0.1": {
+      "sha512": "zmERIuyMufMcEOf0nLM9ApgH4VHhUnFGzmrgp2mkFL5unXfzDFg7Itdq4PsKMjrBZScGt3ayN0ct7F5ttdZ1eA==",
       "type": "package",
-      "path": "microsoft.aspnetcore.cryptography.internal/2.0.0",
+      "path": "microsoft.aspnetcore.cryptography.internal/2.0.1",
       "files": [
         "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.Internal.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.Internal.xml",
-        "microsoft.aspnetcore.cryptography.internal.2.0.0.nupkg.sha512",
+        "microsoft.aspnetcore.cryptography.internal.2.0.1.nupkg.sha512",
         "microsoft.aspnetcore.cryptography.internal.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Cryptography.KeyDerivation/2.0.0": {
-      "sha512": "kXszvwovn6Xot8JvRVf5KL9HXHzVVirs9diPkzMDNoPWMvubXRisw1d3T2ETFCgx2MOOhfUu5+LXlybC1ITkOQ==",
+    "Microsoft.AspNetCore.Cryptography.KeyDerivation/2.0.1": {
+      "sha512": "rLj4xn0dwWslmk2LSrLUNlJ8pGDspj8MQ6EyLQO+saGobnGXhJa+k92d6X0w2qhZddHhLebXurRFlyKOpdkWNQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.cryptography.keyderivation/2.0.0",
+      "path": "microsoft.aspnetcore.cryptography.keyderivation/2.0.1",
       "files": [
         "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.xml",
-        "microsoft.aspnetcore.cryptography.keyderivation.2.0.0.nupkg.sha512",
+        "microsoft.aspnetcore.cryptography.keyderivation.2.0.1.nupkg.sha512",
         "microsoft.aspnetcore.cryptography.keyderivation.nuspec"
       ]
     },
@@ -7701,6 +7782,50 @@
         "lib/netstandard1.3/Newtonsoft.Json.Bson.xml",
         "newtonsoft.json.bson.1.0.1.nupkg.sha512",
         "newtonsoft.json.bson.nuspec"
+      ]
+    },
+    "OpenIddict.Abstractions/2.0.0-rc3-final": {
+      "sha512": "w6N74xjBG0dOYvOPzVoeBPX/eRX+SHpry+goW9505ZpqQR4bAwsdjNTFnrpzGU0H//+HCSmCerB3Dn2nGdr9uA==",
+      "type": "package",
+      "path": "openiddict.abstractions/2.0.0-rc3-final",
+      "files": [
+        "lib/netstandard2.0/OpenIddict.Abstractions.dll",
+        "lib/netstandard2.0/OpenIddict.Abstractions.xml",
+        "openiddict.abstractions.2.0.0-rc3-final.nupkg.sha512",
+        "openiddict.abstractions.nuspec"
+      ]
+    },
+    "OpenIddict.Core/2.0.0-rc3-final": {
+      "sha512": "U4jFOETAi8qIiX+TyLEFINvDU0CIvLsdEcX+nqV/lUx5nPV1klqTWHhnhQtfZnSdN87elSghX1vgTdpjTCzYIw==",
+      "type": "package",
+      "path": "openiddict.core/2.0.0-rc3-final",
+      "files": [
+        "lib/netstandard2.0/OpenIddict.Core.dll",
+        "lib/netstandard2.0/OpenIddict.Core.xml",
+        "openiddict.core.2.0.0-rc3-final.nupkg.sha512",
+        "openiddict.core.nuspec"
+      ]
+    },
+    "OpenIddict.EntityFrameworkCore/2.0.0-rc3-final": {
+      "sha512": "slUMvQ/B4vuqtk5OT+WpDGkFetJrammS7i01cY1LRwhrT4/JUIlnnKcZKmRJouyJxSq86WDTntLduTiQjpkYYw==",
+      "type": "package",
+      "path": "openiddict.entityframeworkcore/2.0.0-rc3-final",
+      "files": [
+        "lib/netstandard2.0/OpenIddict.EntityFrameworkCore.dll",
+        "lib/netstandard2.0/OpenIddict.EntityFrameworkCore.xml",
+        "openiddict.entityframeworkcore.2.0.0-rc3-final.nupkg.sha512",
+        "openiddict.entityframeworkcore.nuspec"
+      ]
+    },
+    "OpenIddict.EntityFrameworkCore.Models/2.0.0-rc3-final": {
+      "sha512": "p+WO++9PZp7TlP8ikMDGdgcrxHb1p9EZWr1Un+1jYYyECDUBx+cPv0XzxdqDXVAPijQ9w3SPX9jJ6SLDydkgZg==",
+      "type": "package",
+      "path": "openiddict.entityframeworkcore.models/2.0.0-rc3-final",
+      "files": [
+        "lib/netstandard2.0/OpenIddict.EntityFrameworkCore.Models.dll",
+        "lib/netstandard2.0/OpenIddict.EntityFrameworkCore.Models.xml",
+        "openiddict.entityframeworkcore.models.2.0.0-rc3-final.nupkg.sha512",
+        "openiddict.entityframeworkcore.models.nuspec"
       ]
     },
     "Remotion.Linq/2.1.1": {
