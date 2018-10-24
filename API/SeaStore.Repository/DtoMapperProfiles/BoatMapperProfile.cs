@@ -9,6 +9,8 @@ namespace SeaStore.Repository.DtoMapperProfiles
     public BoatMapperProfile()
     {
       CreateMap<Boat, BoatDto>();
+      CreateMap<PayType, PayTypeDto>();
+      CreateMap<BoatType, BoatTypeDto>();
     }
   }
 }
