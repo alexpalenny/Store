@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.Serialization;
 
-namespace Aya.Core.FilterQuery
+namespace SeaStore.FilterQuery
 {
 	/// <summary>
 	/// Represents a aggregate expression of DataSource.

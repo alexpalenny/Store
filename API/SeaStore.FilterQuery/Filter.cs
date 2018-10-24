@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 using System.Linq.Dynamic;
 using System.Text;
 
-namespace Aya.Core.FilterQuery
+namespace SeaStore.FilterQuery
 {
     /// <summary>
     /// Represents a filter expression of DataSource.

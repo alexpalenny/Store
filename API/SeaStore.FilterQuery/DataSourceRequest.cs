@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
-namespace Aya.Core.FilterQuery
+namespace SeaStore.FilterQuery
 {
     /// <summary>
     /// Describes a Datasource request.
