@@ -4857,6 +4857,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "AspNet.Security.OpenIdConnect.Primitives": "2.0.0-rc3-final",
           "AutoMapper": "7.0.1",
           "SeaStore.Dto": "1.0.0",
           "SeaStore.Entities": "1.0.0",
@@ -12714,6 +12715,7 @@
       "Microsoft.NETCore.App >= 2.0.0",
       "SeaStore.Dto >= 1.0.0",
       "SeaStore.FilterQuery >= 1.0.0",
+      "SeaStore.Repository >= 1.0.0",
       "SeaStore.Services >= 1.0.0",
       "Swagger >= 1.0.0",
       "Swashbuckle.AspNetCore.SwaggerUI >= 3.0.0"
@@ -12754,6 +12756,9 @@
           "projectReferences": {
             "C:\\Users\\Alex\\Desktop\\Store\\API\\SeaStore.FilterQuery\\SeaStore.FilterQuery.csproj": {
               "projectPath": "C:\\Users\\Alex\\Desktop\\Store\\API\\SeaStore.FilterQuery\\SeaStore.FilterQuery.csproj"
+            },
+            "C:\\Users\\Alex\\Desktop\\Store\\API\\SeaStore.Repository\\SeaStore.Repository.csproj": {
+              "projectPath": "C:\\Users\\Alex\\Desktop\\Store\\API\\SeaStore.Repository\\SeaStore.Repository.csproj"
             },
             "C:\\Users\\Alex\\Desktop\\Store\\API\\SeaStore.Services\\SeaStore.Services.csproj": {
               "projectPath": "C:\\Users\\Alex\\Desktop\\Store\\API\\SeaStore.Services\\SeaStore.Services.csproj"

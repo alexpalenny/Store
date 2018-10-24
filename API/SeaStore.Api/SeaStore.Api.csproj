@@ -25,6 +25,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SeaStore.Dto\SeaStore.Dto.csproj" />
     <ProjectReference Include="..\SeaStore.FilterQuery\SeaStore.FilterQuery.csproj" />
+    <ProjectReference Include="..\SeaStore.Repository\SeaStore.Repository.csproj" />
     <ProjectReference Include="..\SeaStore.Services\SeaStore.Services.csproj" />
   </ItemGroup>
 

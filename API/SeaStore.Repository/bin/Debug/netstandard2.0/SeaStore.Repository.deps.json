@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "45ee6b83be71a30d79d029d1ba1d4b5a31687559"
+    "signature": "ca685ef7b9db1c7f8f09573b5d50c2733ea427cf"
   },
   "compilationOptions": {},
   "targets": {
@@ -9,6 +9,7 @@
     ".NETStandard,Version=v2.0/": {
       "SeaStore.Repository/1.0.0": {
         "dependencies": {
+          "AspNet.Security.OpenIdConnect.Primitives": "2.0.0-rc3-final",
           "AutoMapper": "7.0.1",
           "NETStandard.Library": "2.0.3",
           "SeaStore.Dto": "1.0.0",
@@ -17,6 +18,18 @@
         },
         "runtime": {
           "SeaStore.Repository.dll": {}
+        }
+      },
+      "AspNet.Security.OpenIdConnect.Primitives/2.0.0-rc3-final": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "2.0.0",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/AspNet.Security.OpenIdConnect.Primitives.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
         }
       },
       "AutoMapper/7.0.1": {
@@ -1540,6 +1553,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AspNet.Security.OpenIdConnect.Primitives/2.0.0-rc3-final": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OpS+5m5DHgpsF90zR8eLdCOTd7IpY8aBLiOYBkHCvcCp4KGs8CfNw0xFzAkqo5W+5W0soM4KY9kWb+8T440P9g==",
+      "path": "aspnet.security.openidconnect.primitives/2.0.0-rc3-final",
+      "hashPath": "aspnet.security.openidconnect.primitives.2.0.0-rc3-final.nupkg.sha512"
     },
     "AutoMapper/7.0.1": {
       "type": "package",

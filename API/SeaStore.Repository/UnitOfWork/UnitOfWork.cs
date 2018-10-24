@@ -6,8 +6,8 @@ using SeaStore.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 using System.Threading.Tasks;
-using SeaStore.Entities.Interfaces.DbContexts;
 using SeaStore.FilterQuery;
+using SeaStore.Entities.Interfaces;
 
 namespace SeaStore.Repository.UnitOfWork
 {

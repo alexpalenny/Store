@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
+      "AspNet.Security.OpenIdConnect.Primitives/2.0.0-rc3-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "2.0.0",
+          "Newtonsoft.Json": "10.0.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/AspNet.Security.OpenIdConnect.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/AspNet.Security.OpenIdConnect.Primitives.dll": {}
+        }
+      },
       "AutoMapper/7.0.1": {
         "type": "package",
         "dependencies": {
@@ -2023,6 +2036,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "AspNet.Security.OpenIdConnect.Primitives": "2.0.0-rc3-final",
           "AutoMapper": "7.0.1",
           "SeaStore.Dto": "1.0.0",
           "SeaStore.Entities": "1.0.0",
@@ -2038,6 +2052,17 @@
     }
   },
   "libraries": {
+    "AspNet.Security.OpenIdConnect.Primitives/2.0.0-rc3-final": {
+      "sha512": "OpS+5m5DHgpsF90zR8eLdCOTd7IpY8aBLiOYBkHCvcCp4KGs8CfNw0xFzAkqo5W+5W0soM4KY9kWb+8T440P9g==",
+      "type": "package",
+      "path": "aspnet.security.openidconnect.primitives/2.0.0-rc3-final",
+      "files": [
+        "aspnet.security.openidconnect.primitives.2.0.0-rc3-final.nupkg.sha512",
+        "aspnet.security.openidconnect.primitives.nuspec",
+        "lib/netstandard2.0/AspNet.Security.OpenIdConnect.Primitives.dll",
+        "lib/netstandard2.0/AspNet.Security.OpenIdConnect.Primitives.xml"
+      ]
+    },
     "AutoMapper/7.0.1": {
       "sha512": "6xHbhsW09sWjjYuE1sqhYn25PQzB6UEUVPME5uhlaIz2NR2+L3+FGbVxvknJKug1BLp6VTLxDb5RcGXKMm0ieQ==",
       "type": "package",
