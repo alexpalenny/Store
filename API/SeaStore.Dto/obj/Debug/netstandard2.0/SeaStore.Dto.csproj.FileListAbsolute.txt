@@ -15,3 +15,12 @@ C:\Users\Alex\Desktop\Store\API\SeaStore.Dto\obj\Debug\netstandard2.0\SeaStore.D
 C:\Users\Alex\Desktop\Store\API\SeaStore.Dto\obj\Debug\netstandard2.0\SeaStore.Dto.AssemblyInfo.cs
 C:\Users\Alex\Desktop\Store\API\SeaStore.Dto\obj\Debug\netstandard2.0\SeaStore.Dto.dll
 C:\Users\Alex\Desktop\Store\API\SeaStore.Dto\obj\Debug\netstandard2.0\SeaStore.Dto.pdb
+C:\Users\alikp\Desktop\Store\API\SeaStore.Dto\bin\Debug\netstandard2.0\SeaStore.Dto.deps.json
+C:\Users\alikp\Desktop\Store\API\SeaStore.Dto\bin\Debug\netstandard2.0\SeaStore.Dto.dll
+C:\Users\alikp\Desktop\Store\API\SeaStore.Dto\bin\Debug\netstandard2.0\SeaStore.Dto.pdb
+C:\Users\alikp\Desktop\Store\API\SeaStore.Dto\obj\Debug\netstandard2.0\SeaStore.Dto.csprojAssemblyReference.cache
+C:\Users\alikp\Desktop\Store\API\SeaStore.Dto\obj\Debug\netstandard2.0\SeaStore.Dto.csproj.CoreCompileInputs.cache
+C:\Users\alikp\Desktop\Store\API\SeaStore.Dto\obj\Debug\netstandard2.0\SeaStore.Dto.AssemblyInfoInputs.cache
+C:\Users\alikp\Desktop\Store\API\SeaStore.Dto\obj\Debug\netstandard2.0\SeaStore.Dto.AssemblyInfo.cs
+C:\Users\alikp\Desktop\Store\API\SeaStore.Dto\obj\Debug\netstandard2.0\SeaStore.Dto.dll
+C:\Users\alikp\Desktop\Store\API\SeaStore.Dto\obj\Debug\netstandard2.0\SeaStore.Dto.pdb

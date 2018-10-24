@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Runtime.Serialization;
 
-namespace Aya.Core.FilterQuery
+namespace SeaStore.FilterQuery
 {
     /// <summary>
     /// Represents a sort expression of DataSource.

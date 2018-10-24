@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Dynamic;
@@ -8,7 +8,7 @@ using Microsoft.Extensions.Caching.Memory;
 using Newtonsoft.Json;
 using DynamicExpression = System.Linq.Dynamic.DynamicExpression;
 
-namespace Aya.Core.FilterQuery
+namespace SeaStore.FilterQuery
 {
     public static class QueryableExtensions
     {

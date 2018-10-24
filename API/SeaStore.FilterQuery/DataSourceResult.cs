@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Collections;
 using System.Runtime.Serialization;
 
-namespace Aya.Core.FilterQuery
+namespace SeaStore.FilterQuery
 {
     /// <summary>
     /// Describes the result of DataSource read operation. 

@@ -13,3 +13,9 @@ C:\Users\Alex\Desktop\Store\API\SeaStore.Repository\obj\Debug\netstandard2.0\Sea
 C:\Users\Alex\Desktop\Store\API\SeaStore.Repository\obj\Debug\netstandard2.0\SeaStore.Repository.pdb
 C:\Users\Alex\Desktop\Store\API\SeaStore.Repository\bin\Debug\netstandard2.0\SeaStore.Entities.dll
 C:\Users\Alex\Desktop\Store\API\SeaStore.Repository\bin\Debug\netstandard2.0\SeaStore.Entities.pdb
+C:\Users\alikp\Desktop\Store\API\SeaStore.Repository\obj\Debug\netstandard2.0\SeaStore.Repository.csprojAssemblyReference.cache
+C:\Users\alikp\Desktop\Store\API\SeaStore.Repository\obj\Debug\netstandard2.0\SeaStore.Repository.csproj.CoreCompileInputs.cache
+C:\Users\alikp\Desktop\Store\API\SeaStore.Repository\obj\Debug\netstandard2.0\SeaStore.Repository.AssemblyInfoInputs.cache
+C:\Users\alikp\Desktop\Store\API\SeaStore.Repository\obj\Debug\netstandard2.0\SeaStore.Repository.AssemblyInfo.cs
+C:\Users\alikp\Desktop\Store\API\SeaStore.Repository\obj\Debug\netstandard2.0\SeaStore.Repository.dll
+C:\Users\alikp\Desktop\Store\API\SeaStore.Repository\obj\Debug\netstandard2.0\SeaStore.Repository.pdb

@@ -9,3 +9,15 @@ C:\Users\Alex\Desktop\Store\API\SeaStore.FilterQuery\obj\Debug\netstandard2.0\Se
 C:\Users\Alex\Desktop\Store\API\SeaStore.FilterQuery\obj\Debug\netstandard2.0\SeaStore.FilterQuery.pdb
 C:\Users\Alex\Desktop\Store\API\SeaStore.FilterQuery\bin\Debug\netstandard2.0\SeaStore.Entities.dll
 C:\Users\Alex\Desktop\Store\API\SeaStore.FilterQuery\bin\Debug\netstandard2.0\SeaStore.Entities.pdb
+C:\Users\alikp\Desktop\Store\API\SeaStore.FilterQuery\bin\Debug\netstandard2.0\SeaStore.FilterQuery.deps.json
+C:\Users\alikp\Desktop\Store\API\SeaStore.FilterQuery\bin\Debug\netstandard2.0\SeaStore.FilterQuery.dll
+C:\Users\alikp\Desktop\Store\API\SeaStore.FilterQuery\bin\Debug\netstandard2.0\SeaStore.FilterQuery.pdb
+C:\Users\alikp\Desktop\Store\API\SeaStore.FilterQuery\bin\Debug\netstandard2.0\SeaStore.Entities.dll
+C:\Users\alikp\Desktop\Store\API\SeaStore.FilterQuery\bin\Debug\netstandard2.0\SeaStore.Entities.pdb
+C:\Users\alikp\Desktop\Store\API\SeaStore.FilterQuery\obj\Debug\netstandard2.0\SeaStore.FilterQuery.csprojAssemblyReference.cache
+C:\Users\alikp\Desktop\Store\API\SeaStore.FilterQuery\obj\Debug\netstandard2.0\SeaStore.FilterQuery.csproj.CoreCompileInputs.cache
+C:\Users\alikp\Desktop\Store\API\SeaStore.FilterQuery\obj\Debug\netstandard2.0\SeaStore.FilterQuery.AssemblyInfoInputs.cache
+C:\Users\alikp\Desktop\Store\API\SeaStore.FilterQuery\obj\Debug\netstandard2.0\SeaStore.FilterQuery.AssemblyInfo.cs
+C:\Users\alikp\Desktop\Store\API\SeaStore.FilterQuery\obj\Debug\netstandard2.0\SeaStore.FilterQuery.csproj.CopyComplete
+C:\Users\alikp\Desktop\Store\API\SeaStore.FilterQuery\obj\Debug\netstandard2.0\SeaStore.FilterQuery.dll
+C:\Users\alikp\Desktop\Store\API\SeaStore.FilterQuery\obj\Debug\netstandard2.0\SeaStore.FilterQuery.pdb

@@ -7,3 +7,12 @@ C:\Users\Alex\Desktop\Store\API\SeaStore.Entities\obj\Debug\netstandard2.0\SeaSt
 C:\Users\Alex\Desktop\Store\API\SeaStore.Entities\bin\Debug\netstandard2.0\SeaStore.Entities.pdb
 C:\Users\Alex\Desktop\Store\API\SeaStore.Entities\obj\Debug\netstandard2.0\SeaStore.Entities.dll
 C:\Users\Alex\Desktop\Store\API\SeaStore.Entities\obj\Debug\netstandard2.0\SeaStore.Entities.pdb
+C:\Users\alikp\Desktop\Store\API\SeaStore.Entities\bin\Debug\netstandard2.0\SeaStore.Entities.deps.json
+C:\Users\alikp\Desktop\Store\API\SeaStore.Entities\bin\Debug\netstandard2.0\SeaStore.Entities.dll
+C:\Users\alikp\Desktop\Store\API\SeaStore.Entities\bin\Debug\netstandard2.0\SeaStore.Entities.pdb
+C:\Users\alikp\Desktop\Store\API\SeaStore.Entities\obj\Debug\netstandard2.0\SeaStore.Entities.csprojAssemblyReference.cache
+C:\Users\alikp\Desktop\Store\API\SeaStore.Entities\obj\Debug\netstandard2.0\SeaStore.Entities.csproj.CoreCompileInputs.cache
+C:\Users\alikp\Desktop\Store\API\SeaStore.Entities\obj\Debug\netstandard2.0\SeaStore.Entities.AssemblyInfoInputs.cache
+C:\Users\alikp\Desktop\Store\API\SeaStore.Entities\obj\Debug\netstandard2.0\SeaStore.Entities.AssemblyInfo.cs
+C:\Users\alikp\Desktop\Store\API\SeaStore.Entities\obj\Debug\netstandard2.0\SeaStore.Entities.dll
+C:\Users\alikp\Desktop\Store\API\SeaStore.Entities\obj\Debug\netstandard2.0\SeaStore.Entities.pdb
