@@ -4,11 +4,11 @@ using SeaStore.Entities.Entities;
 
 namespace SeaStore.Repository.DtoMapperProfiles
 {
-  public class YachtMapperProfile : Profile
+  public class BoatMapperProfile : Profile
   {
-    public YachtMapperProfile()
+    public BoatMapperProfile()
     {
-      CreateMap<Yacht, YachtDto>();
+      CreateMap<Boat, BoatDto>();
     }
   }
 }

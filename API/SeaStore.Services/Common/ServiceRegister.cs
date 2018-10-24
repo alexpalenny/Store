@@ -12,7 +12,7 @@ namespace SeaStore.Services.Common
   {
     public static void Register(IServiceCollection services, IConfiguration configuration)
     {
-      services.AddScoped<IYachtService, YachtService>();
+      services.AddScoped<IBoatService, BoatService>();
       DbContextRegister.Register(services, configuration);
 
       InitializeAutoMapper();
@@ -22,7 +22,7 @@ namespace SeaStore.Services.Common
     {
       Mapper.Initialize(cfg =>
       {
-        cfg.AddProfile<YachtMapperProfile>();
+        cfg.AddProfile<BoatMapperProfile>();
       });
     }
   }

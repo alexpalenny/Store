@@ -1,6 +1,6 @@
 namespace SeaStore.Entities.Entities
 {
-  public class Yacht
+  public class Boat
   {
     public int Id { get; set; }
   }

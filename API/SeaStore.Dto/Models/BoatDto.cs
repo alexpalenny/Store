@@ -1,6 +1,6 @@
 namespace SeaStore.Dto.Models
 {
-  public class YachtDto
+  public class BoatDto
   {
     public int Id { get; set; }
   }

@@ -12,7 +12,7 @@ namespace SeaStore.Entities.DbContexts
 
     public string CurrentUserId { get; set; }
 
-    public DbSet<Yacht> Yachts { get; set; }
+    public DbSet<Boat> Boats { get; set; }
 
     public SeaStoreDbContext() : base()
     {

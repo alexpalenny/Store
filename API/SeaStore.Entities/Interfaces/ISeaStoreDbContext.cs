@@ -8,6 +8,6 @@ namespace SeaStore.Entities.Interfaces
   {
     string CurrentUserId { get; set; }
 
-    DbSet<Yacht> Yachts { get; set; }
+    DbSet<Boat> Boats { get; set; }
   }
 }

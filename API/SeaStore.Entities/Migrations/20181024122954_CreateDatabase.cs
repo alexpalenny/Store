@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ namespace SeaStore.Entities.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Yachts",
+                name: "Boats",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -18,14 +18,14 @@ namespace SeaStore.Entities.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Yachts", x => x.Id);
+                    table.PrimaryKey("PK_Boats", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Yachts");
+                name: "Boats");
         }
     }
 }

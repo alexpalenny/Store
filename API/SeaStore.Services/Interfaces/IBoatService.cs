@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SeaStore.Services.Interfaces
 {
-  public interface IYachtService
+  public interface IBoatService
   {
   }
 }
