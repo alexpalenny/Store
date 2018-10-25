@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using SeaStore.Entities.Configuration;
 using SeaStore.Entities.Entities;
 using SeaStore.Entities.Interfaces;
 using System;
@@ -23,7 +24,7 @@ namespace SeaStore.Entities.DbContexts
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-      optionsBuilder.UseSqlServer(@"Server=.\;Database=SeaStore;Trusted_Connection=True;MultipleActiveResultSets=true");
+      //optionsBuilder.UseSqlServer(@"Server=.\;Database=SeaStore;Trusted_Connection=True;MultipleActiveResultSets=true");
 
 #if DEBUG
       // SUPER FEATURE. Shows the Ids of conflicted entities on Debug
@@ -34,5 +35,13 @@ namespace SeaStore.Entities.DbContexts
     public SeaStoreDbContext(DbContextOptions<SeaStoreDbContext> options) : base(options)
     {
     }
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+      builder.ApplyConfiguration(new BoatConfiguration());
+      builder.ApplyConfiguration(new BoatTypeConfiguration());
+      builder.ApplyConfiguration(new PayTypeConfiguration());
+    }
+
   }
 }

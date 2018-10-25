@@ -1,3 +1,6 @@
+--"Server=.\;Database=SeaStore;Trusted_Connection=True;MultipleActiveResultSets=true"
+
+
 --Connection string
 --Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;
 
