@@ -99,6 +99,8 @@ INSERT [dbo].[BoatTypes] ([Id], [Name]) VALUES (5, N'Каяк')
 GO
 INSERT [dbo].[BoatTypes] ([Id], [Name]) VALUES (6, N'Лодка')
 GO
+INSERT [dbo].[BoatTypes] ([Id], [Name]) VALUES (7, N'Гидроцикл')
+GO
 INSERT [dbo].[PayTypes] ([Id], [Name]) VALUES (1, N'Наличными')
 GO
 INSERT [dbo].[PayTypes] ([Id], [Name]) VALUES (2, N'Картой')

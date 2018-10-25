@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Enum\" />
     <Folder Include="Configuration\" />
   </ItemGroup>
 
