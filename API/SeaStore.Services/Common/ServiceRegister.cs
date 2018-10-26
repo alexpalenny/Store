@@ -3,6 +3,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SeaStore.Entities.Common;
 using SeaStore.Repository.DtoMapperProfiles;
+using SeaStore.Repository.Interfaces;
+using SeaStore.Repository.UnitOfWork;
 using SeaStore.Services.Interfaces;
 using SeaStore.Services.Services;
 
@@ -12,6 +14,8 @@ namespace SeaStore.Services.Common
   {
     public static void Register(IServiceCollection services, IConfiguration configuration)
     {
+      services.AddScoped<IUnitOfWork, HttpUnitOfWork>();
+
       services.AddScoped<IBoatService, BoatService>();
       DbContextRegister.Register(services, configuration);
 

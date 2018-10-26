@@ -92,7 +92,10 @@ ALTER TABLE [dbo].[Boats] CHECK CONSTRAINT [FK_Boats_PayTypes]
 GO
 
 
-USE [yachts]
+USE [SeaStore]
+GO
+
+SET IDENTITY_INSERT [dbo].[BoatTypes] ON 
 GO
 INSERT [dbo].[BoatTypes] ([Id], [Name]) VALUES (1, N'Парусная яхта')
 GO
@@ -108,11 +111,33 @@ INSERT [dbo].[BoatTypes] ([Id], [Name]) VALUES (6, N'Лодка')
 GO
 INSERT [dbo].[BoatTypes] ([Id], [Name]) VALUES (7, N'Гидроцикл')
 GO
+
+SET IDENTITY_INSERT [dbo].[BoatTypes] OFF 
+GO
+
+SET IDENTITY_INSERT [dbo].[PayTypes] ON 
+GO
+
 INSERT [dbo].[PayTypes] ([Id], [Name]) VALUES (1, N'Наличными')
 GO
 INSERT [dbo].[PayTypes] ([Id], [Name]) VALUES (2, N'Картой')
 GO
 
+SET IDENTITY_INSERT [dbo].[PayTypes] OFF 
+GO
+
+USE [SeaStore]
+GO
+SET IDENTITY_INSERT [dbo].[Boats] ON 
+GO
+INSERT [dbo].[Boats] ([Id], [Beam], [BoatTypeId], [Capacity], [Default], [Descritption], [Length], [MinOrder], [Name], [PayTypeId], [Price], [TypeId]) VALUES (1, CAST(3.50 AS Decimal(18, 2)), 1, 10, 1, N'На борту спальня и каюткомпания, гальюн, холодильник, газовая плита, телевизор, музыка. Имеются удочки для рыбалки, ласты и маска, для желающих нырнуть.', CAST(14.00 AS Decimal(18, 2)), CAST(2.00 AS Decimal(18, 2)), N'Форт', 1, CAST(2500.00 AS Decimal(18, 2)), 1)
+GO
+INSERT [dbo].[Boats] ([Id], [Beam], [BoatTypeId], [Capacity], [Default], [Descritption], [Length], [MinOrder], [Name], [PayTypeId], [Price], [TypeId]) VALUES (2, CAST(3.00 AS Decimal(18, 2)), 1, 6, 1, N'На борту спальня и каюткомпания, гальюн, холодильник, газовая плита, музыка. Ласты и маска, для желающих нырнуть.', CAST(10.00 AS Decimal(18, 2)), CAST(2.00 AS Decimal(18, 2)), N'Нир', 1, CAST(1500.00 AS Decimal(18, 2)), 1)
+GO
+INSERT [dbo].[Boats] ([Id], [Beam], [BoatTypeId], [Capacity], [Default], [Descritption], [Length], [MinOrder], [Name], [PayTypeId], [Price], [TypeId]) VALUES (3, CAST(2.10 AS Decimal(18, 2)), 1, 4, 1, N'На борту спальня гальюн, холодильник, газовая плита, музыка. Ласты и маска, для желающих нырнуть.', CAST(7.50 AS Decimal(18, 2)), CAST(1.00 AS Decimal(18, 2)), N'Ник', 1, CAST(1000.00 AS Decimal(18, 2)), 1)
+GO
+SET IDENTITY_INSERT [dbo].[Boats] OFF
+GO
 
 
 SELECT TOP (1000) b.[Id]

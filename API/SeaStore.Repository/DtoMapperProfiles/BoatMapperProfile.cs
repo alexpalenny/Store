@@ -8,7 +8,9 @@ namespace SeaStore.Repository.DtoMapperProfiles
   {
     public BoatMapperProfile()
     {
-      CreateMap<Boat, BoatDto>();
+      CreateMap<Boat, BoatDto>()
+        .ForMember(cv => cv.BoatType, opt => opt.MapFrom(src => src.BoatType != null ? src.BoatType.Name : null))
+        .ForMember(cv => cv.PayType, opt => opt.MapFrom(src => src.PayType != null ? src.PayType.Name : null));
       CreateMap<PayType, PayTypeDto>();
       CreateMap<BoatType, BoatTypeDto>();
     }
