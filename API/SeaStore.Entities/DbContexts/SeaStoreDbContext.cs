@@ -24,8 +24,6 @@ namespace SeaStore.Entities.DbContexts
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-      //optionsBuilder.UseSqlServer(@"Server=.\;Database=SeaStore;Trusted_Connection=True;MultipleActiveResultSets=true");
-
 #if DEBUG
       // SUPER FEATURE. Shows the Ids of conflicted entities on Debug
       optionsBuilder.EnableSensitiveDataLogging();
@@ -41,6 +39,8 @@ namespace SeaStore.Entities.DbContexts
       builder.ApplyConfiguration(new BoatConfiguration());
       builder.ApplyConfiguration(new BoatTypeConfiguration());
       builder.ApplyConfiguration(new PayTypeConfiguration());
+
+      base.OnModelCreating(builder);
     }
 
   }

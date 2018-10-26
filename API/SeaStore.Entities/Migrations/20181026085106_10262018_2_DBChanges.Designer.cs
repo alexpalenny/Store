@@ -12,9 +12,10 @@ using System;
 namespace SeaStore.Entities.Migrations
 {
     [DbContext(typeof(SeaStoreDbContext))]
-    partial class SeaStoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181026085106_10262018_2_DBChanges")]
+    partial class _10262018_2_DBChanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +16,10 @@ namespace SeaStore.Entities.Common
       {
         options.UseSqlServer(configuration["ConnectionStrings:DefaultConnection"], b => b.MigrationsAssembly("SeaStore.Entities").UseRowNumberForPaging());
         options.UseOpenIddict();
+
+        services.AddIdentity<ApplicationUser, ApplicationRole>()
+            .AddEntityFrameworkStores<SeaStoreDbContext>()
+            .AddDefaultTokenProviders();
       });
     }
   }

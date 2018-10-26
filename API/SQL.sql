@@ -1,3 +1,7 @@
+--dotnet ef database update --project SeaStore.Entities --startup-project SeaStore.Api
+--dotnet ef  migrations add 10262018_DbChange --project SeaStore.Entities --startup-project SeaStore.Api
+
+--"DefaultConnection": "Server=.\\;Database=SeaStore;Trusted_Connection=True;MultipleActiveResultSets=true;Integrated Security=False;User ID=sa;Password=alexpass12!;",
 --"Server=.\;Database=SeaStore;Trusted_Connection=True;MultipleActiveResultSets=true"
 
 
