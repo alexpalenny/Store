@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using SeaStore.Dto.Models;
 using SeaStore.Entities.DbContexts;
 using SeaStore.Repository.Common;
@@ -11,7 +12,10 @@ namespace SeaStore.Repository.Repositories
     public BoatRepository(SeaStoreDbContext context) : base(context) { }
     public IEnumerable<BoatDto> GetAllBoats()
     {
-      var result = _context.Boats.MapToEnumerable<BoatDto>();
+      var result = _context.Boats
+        .Include(cv => cv.BoatType)
+        .Include(cv => cv.PayType)
+        .MapToEnumerable<BoatDto>();
       return result;
     }
   }
