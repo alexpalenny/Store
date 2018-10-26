@@ -1,3 +1,6 @@
+--"Server=.\;Database=SeaStore;Trusted_Connection=True;MultipleActiveResultSets=true"
+
+
 --Connection string
 --Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;
 
@@ -98,6 +101,8 @@ GO
 INSERT [dbo].[BoatTypes] ([Id], [Name]) VALUES (5, N'Каяк')
 GO
 INSERT [dbo].[BoatTypes] ([Id], [Name]) VALUES (6, N'Лодка')
+GO
+INSERT [dbo].[BoatTypes] ([Id], [Name]) VALUES (7, N'Гидроцикл')
 GO
 INSERT [dbo].[PayTypes] ([Id], [Name]) VALUES (1, N'Наличными')
 GO
