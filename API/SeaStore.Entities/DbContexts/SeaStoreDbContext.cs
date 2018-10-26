@@ -23,7 +23,7 @@ namespace SeaStore.Entities.DbContexts
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-      optionsBuilder.UseSqlServer(@"Server=.\;Database=SeaStore;Trusted_Connection=True;MultipleActiveResultSets=true");
+      //optionsBuilder.UseSqlServer(@"Server=.\;Database=SeaStore;Trusted_Connection=True;MultipleActiveResultSets=true");
 
 #if DEBUG
       // SUPER FEATURE. Shows the Ids of conflicted entities on Debug
