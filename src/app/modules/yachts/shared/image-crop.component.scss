@@ -1,5 +1,11 @@
+.crop-container { 
+    display: grid; 
+    grid-gap: 20px; 
+    margin: 15px;
+    max-width: 200px;
+}
+
 .ng2-imgcrop { 
     display: grid; 
     grid-gap: 20px; 
-    margin: 15px; 
 }
