@@ -6,6 +6,8 @@ import {SharedModule} from '../../shared/shared.module';
 import {YachtService} from './shared/yacht.service';
 import {YachtsListPage} from './pages/yachts-list/yachts-list.page';
 import {YachtDetailPage} from './pages/yacht-detail/yacht-detail.page';
+import { CropComponent } from './shared/image-crop.component';
+import { ImageCropperModule } from 'ng2-img-cropper';
 // import {YachtRemoveComponent} from './components/yacht-remove/yacht-remove.component';
 
 @NgModule({
@@ -13,11 +15,13 @@ import {YachtDetailPage} from './pages/yacht-detail/yacht-detail.page';
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    YachtRoutingModule
+    YachtRoutingModule,
+    ImageCropperModule
   ],
   declarations: [
     YachtsListPage,
     YachtDetailPage,
+    CropComponent,
     // YachtRemoveComponent
   ],
   // entryComponents: [
