@@ -8,5 +8,6 @@ namespace SeaStore.Services.Interfaces
   public interface IBoatService
   {
     IEnumerable<BoatDto> GetAllBoats();
+    BoatDto GetBoatById(int id);    
   }
 }

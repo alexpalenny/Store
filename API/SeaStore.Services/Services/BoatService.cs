@@ -19,5 +19,9 @@ namespace SeaStore.Services.Services
     {
       return _repository.GetAllBoats();
     }
+    public BoatDto GetBoatById(int id)
+    {
+      return _repository.GetBoatById(id);
+    }
   }
 }
