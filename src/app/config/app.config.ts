@@ -12,7 +12,8 @@ export const AppConfig: IAppConfig = {
   },
   endpoints: {
     heroes: 'https://nodejs-example-app.herokuapp.com/heroes',
-    yachts: 'api/yachtList.json'
+    yachts: 'http://www.u-sail.com.ua/api/api/boats',
+    //yachts: 'api/yachtList.json'
   },
   votesLimit: 3,
   topHeroesLimit: 4,

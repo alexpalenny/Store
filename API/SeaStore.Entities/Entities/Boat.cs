@@ -1,4 +1,5 @@
 using SeaStore.Entities.Enum;
+using System.Collections.Generic;
 
 namespace SeaStore.Entities.Entities
 {
@@ -17,5 +18,7 @@ namespace SeaStore.Entities.Entities
     public PayType PayType { get; set; }
     public decimal? MinOrder { get; set; }
     public bool Default { get; set; }
+
+    public virtual IEnumerable<BoatPhoto> Photoes { get; set; }
   }
 }

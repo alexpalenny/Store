@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SeaStore.Entities.Common;
@@ -14,8 +15,8 @@ namespace SeaStore.Services.Common
   {
     public static void Register(IServiceCollection services, IConfiguration configuration)
     {
+      services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
       services.AddScoped<IUnitOfWork, HttpUnitOfWork>();
-
       services.AddScoped<IBoatService, BoatService>();
       DbContextRegister.Register(services, configuration);
 
