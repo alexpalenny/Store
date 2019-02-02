@@ -1,15 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using AutoMapper;
-using SeaStore.Repository.DtoMapperProfiles;
 using SeaStore.Services.Common;
 
 namespace SeaStore
@@ -41,7 +33,10 @@ namespace SeaStore
         app.UseDeveloperExceptionPage();
       }
 
-      app.UseCors(options => options.WithOrigins("http://localhost:4200").AllowAnyMethod());
+      app.UseCors(options => options
+                .WithOrigins("http://localhost:4200")
+                .AllowAnyMethod()
+        );
 
       app.UseMvc();
       //app.UseSwagger();
