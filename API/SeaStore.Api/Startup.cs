@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Builder;
@@ -22,6 +23,7 @@ namespace SeaStore
     }
 
     public IConfiguration Configuration { get; }
+    public object IdentityServerConstants { get; private set; }
 
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
@@ -96,6 +98,11 @@ namespace SeaStore
         });
       });
       app.UseAuthentication();
+
+      //app.UseGoogleAuthentication(new GoogleOptions {
+      //  SignInScheme = IdentityServerConstants.
+        
+      //});
       app.UseForwardedHeaders(new ForwardedHeadersOptions
       {
         RequireHeaderSymmetry = false,
