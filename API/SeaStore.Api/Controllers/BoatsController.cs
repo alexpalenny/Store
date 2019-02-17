@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using SeaStore.Services.Interfaces;
 using SeaStore.Dto.Models;
 using System;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SeaStore.Controllers
 {
@@ -23,6 +24,7 @@ namespace SeaStore.Controllers
       return "Test 1011 " + DateTime.Now;
     }
     // GET api/values
+    [Authorize]
     [HttpGet]
     public IEnumerable<BoatDto> Get()
     {

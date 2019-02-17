@@ -1,7 +1,11 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SeaStore.Services.Common;
@@ -27,6 +31,30 @@ namespace SeaStore
       services.AddResponseCaching();
       services.AddMvc();
       services.AddCors();
+
+      services.AddAuthentication(options =>
+      {
+        options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+      })
+      .AddCookie()
+
+      .AddOpenIdConnect(o =>
+      {
+        o.ClientId = Configuration["Authorization:ClientId"];
+        o.ClientSecret = Configuration["Authorization:ClientSecret"];
+        o.Authority = "https://accounts.google.com";
+        o.ResponseType = "code";
+        o.GetClaimsFromUserInfoEndpoint = true;
+      })
+      .AddGoogle(o =>
+      {
+        o.ClientId = Configuration["Authorization:ClientId"];
+        o.ClientSecret = Configuration["Authorization:ClientSecret"];
+        o.AuthorizationEndpoint = "https://accounts.google.com";
+      });
+    //.AddFacebook(facebookOptions => { ... }); ;
+
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,14 +95,40 @@ namespace SeaStore
           }
         });
       });
+      app.UseAuthentication();
+      app.UseForwardedHeaders(new ForwardedHeadersOptions
+      {
+        RequireHeaderSymmetry = false,
+        ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+      });
+
+      //app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
+
+      //app.UseCookieAuthentication(new CookieAuthenticationOptions
+      //{
+      //  AuthenticationType = "Cookies"
+      //});
+
+      //app.UseOpenIdConnectAuthentication(
+      //    new OpenIdConnectAuthenticationOptions
+      //    {
+      //      RequireHttpsMetadata = false,
+      //      AuthenticationType = "oidc",
+      //      SignInAsAuthenticationType = "Cookies",
+      //      Authority = "http://localhost:5000",
+      //      RedirectUri = "http://localhost:8010/myproject.services/api/oidc",
+      //      PostLogoutRedirectUri = "http://localhost:8010/myproject.application",
+      //      ClientId = "CLIENT1",
+      //      ClientSecret = "a-local-testing-password",
+      //      Scope = "CLIENT1 offline_access",
+      //      ResponseType = "code id_token"
+      //    });
       //app.UseSwagger();
       //app.UseSwaggerUI(c =>
       //{
       //  c.SwaggerEndpoint("/swagger/SeaStore/swagger.json", "API swagger");
       //});
-      app.UseAuthentication();
       app.UseMvc();
-
     }
   }
 }
