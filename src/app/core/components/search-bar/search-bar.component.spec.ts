@@ -7,16 +7,13 @@ import {AppRoutingModule} from '../../../app-routing.module';
 import {APP_BASE_HREF} from '@angular/common';
 import {TestsModule} from '../../../shared/modules/tests.module';
 import {Error404Page} from '../../pages/error404/error404.page';
-import {HomePage} from '../../pages/home/home.page';
-import {HeroService} from '../../../modules/heroes/shared/hero.service';
+import {PrivacyPage} from '../../pages/privacy/privacy.page';
 import {YachtService} from '../../../modules/yachts/shared/yacht.service';
 import {Router} from '@angular/router';
-import {Hero} from '../../../modules/heroes/shared/hero.model';
 
-describe('HeroSearchComponent', () => {
+describe('SearchComponent', () => {
   let fixture;
   let component;
-  let heroService;
   let yachtService;
 
   beforeEach(async(() => {
@@ -28,8 +25,8 @@ describe('HeroSearchComponent', () => {
       ],
       declarations: [
         SearchBarComponent,
-        HomePage,
-        Error404Page
+        Error404Page,
+        PrivacyPage
       ],
       providers: [
         {
@@ -40,7 +37,6 @@ describe('HeroSearchComponent', () => {
         },
         {provide: APP_CONFIG, useValue: AppConfig},
         {provide: APP_BASE_HREF, useValue: '/'},
-        HeroService,
         YachtService
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
@@ -49,7 +45,6 @@ describe('HeroSearchComponent', () => {
     fixture = TestBed.createComponent(SearchBarComponent);
     fixture.detectChanges();
     component = fixture.debugElement.componentInstance;
-    heroService = TestBed.get(HeroService);
     yachtService = TestBed.get(YachtService);
   }));
 
@@ -58,14 +53,10 @@ describe('HeroSearchComponent', () => {
   }));
 
   it('should get all heroes', fakeAsync(() => {
-    spyOn(heroService, 'getHeroes').and.returnValue(Promise.resolve(true));
     spyOn(yachtService, 'getYachts').and.returnValue(Promise.resolve(true));
     tick();
     fixture.detectChanges();
     expect(component.defaultHeroes.length).toBeGreaterThan(0);
-    for (const hero of component.defaultHeroes) {
-      expect(hero.default).toBe(true);
-    }
   }));
 
   it('should filter heroes array', (() => {
@@ -88,7 +79,6 @@ describe('HeroSearchComponent', () => {
 
   it('should navigate to hero detail', (() => {
     const router = fixture.debugElement.injector.get(Router);
-    component.searchHero(new Hero(5, 'test name', 'test alterEgo', 0));
     expect(router.navigate).toHaveBeenCalledWith(['heroes/5']);
   }));
 });

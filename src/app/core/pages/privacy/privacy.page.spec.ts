@@ -4,11 +4,11 @@ import {TranslateModule} from '@ngx-translate/core';
 import {APP_CONFIG, AppConfig} from '../../../config/app.config';
 import {MaterialModule} from '../../../shared/modules/material.module';
 import {TestsModule} from '../../../shared/modules/tests.module';
-import {Error404Page} from './error404.page';
+import {PrivacyPage} from './privacy.page';
 import {YachtService} from '../../../modules/yachts/shared/yacht.service';
 import {ProgressBarService} from '../../services/progress-bar.service';
 
-describe('Error404Page', () => {
+describe('PrivacyPage', () => {
   let fixture;
   let component;
   let progressBarService;
@@ -21,7 +21,7 @@ describe('Error404Page', () => {
         MaterialModule
       ],
       declarations: [
-        Error404Page
+        PrivacyPage
       ],
       providers: [
         {provide: APP_CONFIG, useValue: AppConfig},
@@ -31,7 +31,7 @@ describe('Error404Page', () => {
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Error404Page);
+    fixture = TestBed.createComponent(PrivacyPage);
     fixture.detectChanges();
     component = fixture.debugElement.componentInstance;
     progressBarService = TestBed.get(ProgressBarService);

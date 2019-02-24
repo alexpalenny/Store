@@ -10,8 +10,8 @@ import {HomePage} from './pages/home/home.page';
 import {HeaderComponent} from './components/header/header.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {Error404Page} from './pages/error404/error404.page';
+import {PrivacyPage} from './pages/privacy/privacy.page';
 import {SearchBarComponent} from './components/search-bar/search-bar.component';
-import {HeroService} from '../modules/heroes/shared/hero.service';
 import {YachtService} from '../modules/yachts/shared/yacht.service';
 
 @NgModule({
@@ -23,6 +23,7 @@ import {YachtService} from '../modules/yachts/shared/yacht.service';
   declarations: [
     HomePage,
     Error404Page,
+    PrivacyPage,
     HeaderComponent,
     SearchBarComponent,
     FooterComponent
@@ -33,7 +34,6 @@ import {YachtService} from '../modules/yachts/shared/yacht.service';
     FooterComponent
   ],
   providers: [
-    HeroService,
     YachtService,
     LoggerService,
     ProgressBarService

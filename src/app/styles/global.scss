@@ -24,19 +24,9 @@ a, .cp {
   @include push--auto(2rem);
 }
 
-.hero-actions {
-  align-items: center;
-  display: flex;
-  padding-bottom: 1rem;
-}
-
 .icon__like--red {
   color: $red;
   cursor: pointer;
-}
-
-.hero-header__image {
-  background-size: cover;
 }
 
 .text--center {

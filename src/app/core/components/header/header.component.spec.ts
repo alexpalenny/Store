@@ -5,7 +5,6 @@ import {APP_CONFIG, AppConfig} from '../../../config/app.config';
 import {MaterialModule} from '../../../shared/modules/material.module';
 import {TestsModule} from '../../../shared/modules/tests.module';
 import {HeaderComponent} from './header.component';
-import {HeroService} from '../../../modules/heroes/shared/hero.service';
 import {YachtService} from '../../../modules/yachts/shared/yacht.service';
 import {ProgressBarService} from '../../services/progress-bar.service';
 
@@ -26,7 +25,6 @@ describe('HeaderComponent', () => {
       ],
       providers: [
         {provide: APP_CONFIG, useValue: AppConfig},
-        HeroService,
         YachtService,
         ProgressBarService
       ],

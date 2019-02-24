@@ -8,9 +8,14 @@ using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SeaStore.Entities;
+using SeaStore.Entities.DbContexts;
 using SeaStore.Services.Common;
+using System;
 using System.Net;
 using System.Text;
 
@@ -24,7 +29,7 @@ namespace SeaStore
     }
 
     public IConfiguration Configuration { get; }
-    public object IdentityServerConstants { get; private set; }
+    //public object IdentityServerConstants { get; private set; }
 
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
@@ -32,41 +37,68 @@ namespace SeaStore
       ServiceRegister.Register(services, Configuration);
       services.AddLogging();
       services.AddResponseCaching();
-      services.AddMvc();
       services.AddCors();
-
-      services.AddAuthentication(options =>
+      // .AddCookie(o => o.LoginPath = new PathString("/login"))
+      services.AddDbContext<SeaStoreDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+      services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<SeaStoreDbContext>()
+        .AddDefaultTokenProviders();
+      ////services.ConfigureApplicationCookie(options => options.LoginPath = "/Account/LogIn");
+      //services.AddAuthentication(options =>
+      //{
+      //  options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+      //  options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+      //  options.DefaultAuthenticateScheme = OpenIdConnectDefaults.AuthenticationScheme;
+      //})
+      //.AddOpenIdConnect(o =>
+      //{
+      //  o.ClientId = Configuration["Authorization:Google:ClientId"];
+      //  o.ClientSecret = Configuration["Authorization:Google:ClientSecret"];
+      //  o.Authority = "https://accounts.google.com";
+      //  o.ResponseType = "code";
+      //  o.GetClaimsFromUserInfoEndpoint = true;
+      //})
+      services.AddAuthentication()
+      .AddFacebook(o =>
       {
-        options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-        options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
-      })
-      .AddCookie()
-
-      .AddOpenIdConnect(o =>
-      {
-        o.ClientId = Configuration["Authorization:ClientId"];
-        o.ClientSecret = Configuration["Authorization:ClientSecret"];
-        o.Authority = "https://accounts.google.com";
-        o.ResponseType = "code";
-        o.GetClaimsFromUserInfoEndpoint = true;
-      })
-      .AddGoogle(o =>
-      {
-        o.ClientId = Configuration["Authorization:ClientId"];
-        o.ClientSecret = Configuration["Authorization:ClientSecret"];
-        o.AuthorizationEndpoint = "https://accounts.google.com";
+        o.AppId = Configuration["Authorization:Facebook:ClientSecret"];
+        o.AppSecret = Configuration["Authorization:Facebook:ClientSecret"];
       });
-    //.AddFacebook(facebookOptions => { ... }); ;
-
+      //.AddGoogle(o =>
+      //{
+      //  o.ClientId = Configuration["Authorization:Google:ClientId"];
+      //  o.ClientSecret = Configuration["Authorization:Google:ClientSecret"];
+      //  o.AuthorizationEndpoint = "https://accounts.google.com";
+      //});
+      services.AddMvc();
     }
 
-    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline. 
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
-      //if (env.IsDevelopment())
+      if (env.IsDevelopment())
+      {
+        app.UseBrowserLink();
+        app.UseDeveloperExceptionPage();
+        app.UseDatabaseErrorPage();
+      }
+      else
+      {
+        app.UseExceptionHandler("/Home/Error");
+      }
+      //app.UseIdentityServerAuthentication(new IdentityServerAuthenticationOptions
       //{
-      app.UseDeveloperExceptionPage();
-      //}
+      //  Authority = Configuration["Settings:Authentication:Authority"],
+      //  RequireHttpsMetadata = false,
+
+      //  ApiName = Configuration["Settings:Authentication:ApiName"],
+      //  ApiSecret = Configuration["Settings:Authentication:ApiSecret"],
+      //  EnableCaching = true,
+      //  CacheDuration = TimeSpan.FromMinutes(10),
+
+      //  AutomaticAuthenticate = true,
+      //  AutomaticChallenge = true
+      //});
 
       app.UseCors(options => options
                 .AllowAnyOrigin()
@@ -76,10 +108,6 @@ namespace SeaStore
         );
       app.UseResponseCaching();
       app.UseStaticFiles();
-
-      //client ID: "720025220681-h64t9rstmp6sbma9v6bag7bt0evicphu.apps.googleusercontent.com"
-      //client secret: "iN-qlGgbxoP-oekt3cqfF8FY"
-
       app.UseExceptionHandler(builder =>
       {
         builder.Run(async context =>
@@ -99,48 +127,23 @@ namespace SeaStore
         });
       });
       app.UseAuthentication();
-      //app.UseFacebookAuthentication(new FacebookOptions
-      //{
-      //  SignInScheme
-
-      //});
-      //app.UseGoogleAuthentication(new GoogleOptions {
-      //  SignInScheme = IdentityServerConstants.
-
-      //});
       app.UseForwardedHeaders(new ForwardedHeadersOptions
       {
         RequireHeaderSymmetry = false,
         ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
       });
-
-      //app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
-
-      //app.UseCookieAuthentication(new CookieAuthenticationOptions
-      //{
-      //  AuthenticationType = "Cookies"
-      //});
-
-      //app.UseOpenIdConnectAuthentication(
-      //    new OpenIdConnectAuthenticationOptions
-      //    {
-      //      RequireHttpsMetadata = false,
-      //      AuthenticationType = "oidc",
-      //      SignInAsAuthenticationType = "Cookies",
-      //      Authority = "http://localhost:5000",
-      //      RedirectUri = "http://localhost:8010/myproject.services/api/oidc",
-      //      PostLogoutRedirectUri = "http://localhost:8010/myproject.application",
-      //      ClientId = "CLIENT1",
-      //      ClientSecret = "a-local-testing-password",
-      //      Scope = "CLIENT1 offline_access",
-      //      ResponseType = "code id_token"
-      //    });
+      
       //app.UseSwagger();
       //app.UseSwaggerUI(c =>
       //{
       //  c.SwaggerEndpoint("/swagger/SeaStore/swagger.json", "API swagger");
       //});
-      app.UseMvc();
+      app.UseMvc(routes =>
+      {
+        routes.MapRoute(
+            name: "default",
+            template: "{controller=Home}/{action=Index}/{id?}");
+      });
     }
   }
 }

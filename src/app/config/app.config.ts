@@ -6,12 +6,11 @@ export let APP_CONFIG = new InjectionToken('app.config');
 
 export const AppConfig: IAppConfig = {
   routes: {
-    heroes: 'heroes',
     yachts: 'yachts',
-    error404: '404'
+    error404: '404',
+    privacy: 'privacy',
   },
   endpoints: {
-    heroes: 'https://nodejs-example-app.herokuapp.com/heroes',
     yachts: 'http://www.u-sail.com.ua/api/api/boats',
     //yachts: 'api/yachtList.json'
   },

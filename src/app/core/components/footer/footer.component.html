@@ -2,8 +2,12 @@
     <div fxFlex fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center"
          class.xs="footer-xs">
         <div fxFlex="33">
-            <span>{{ 'My Boat' | translate }}</span>
+            <span>{{ 'U-Sail' | translate }}</span>
         </div>
+        <div fxFlex="20">
+            <a [routerLink]="['/privacy']" preserveQueryParams preserveFragment>Privacy Policy</a>
+        </div>
+        
         <div fxFlex="33" class="text--center" *ngIf="currentLang">
           <lib-ngx-example-library [locale]="currentLang"></lib-ngx-example-library>
         </div>

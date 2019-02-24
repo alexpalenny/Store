@@ -14,6 +14,7 @@ import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
 import {ProgressBarService} from './core/services/progress-bar.service';
 import {WebpackTranslateLoader} from './webpack-translate-loader';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   imports: [
@@ -41,7 +42,8 @@ import {WebpackTranslateLoader} from './webpack-translate-loader';
   providers: [
     {provide: APP_CONFIG, useValue: AppConfig},
     {provide: HTTP_INTERCEPTORS, useClass: ProgressInterceptor, multi: true, deps: [ProgressBarService]},
-    {provide: HTTP_INTERCEPTORS, useClass: TimingInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: TimingInterceptor, multi: true},
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })

@@ -1,6 +1,6 @@
 {
   "alert": "Alert",
-  "angularExampleApp": "Angular Example App",
+  "usail": "U-Sail",
   "areYouSure": "Are you sure?",
   "back": "Back",
   "canVote": "Can vote :)",
@@ -13,7 +13,7 @@
   "details": "details",
   "error404": "404 Error",
   "errorHasOcurred": "An error has ocurred",
-  "findHero": "Look for a hero",
+  "findHero": "Look for a boat",
   "firstTwoHeroesById": "Heroes (1-2)",
   "goBack": "Go back",
   "hero-create-new": {

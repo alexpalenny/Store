@@ -1,0 +1,33 @@
+@import "mixins";
+
+img {
+  @include push--auto();
+  display: block;
+}
+
+.explanation {
+  margin: 1rem 0;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.container {
+  display: inline-flex;
+  width: 70%;
+  align-items: center;
+  margin: auto;
+  justify-content: space-around;
+}
+
+h2 {
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+p {
+  text-indent: 10px;
+}
+ul {
+  margin-left: 20px;
+  list-style-type: disc;
+}

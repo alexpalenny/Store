@@ -3,7 +3,6 @@ import {ProgressBarService} from './progress-bar.service';
 import {TestsModule} from '../../shared/modules/tests.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {APP_CONFIG, AppConfig} from '../../config/app.config';
-import {HeroService} from '../../modules/heroes/shared/hero.service';
 import {YachtService} from '../../modules/yachts/shared/yacht.service';
 
 describe('ProgressBarService', () => {

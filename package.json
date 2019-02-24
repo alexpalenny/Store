@@ -16,7 +16,7 @@
     "bundle-report": "ng build --prod --stats-json && webpack-bundle-analyzer dist/stats.json",
     "release:minor": "standard-version --release-as minor && git push --follow-tags origin master",
     "release:major": "standard-version --release-as major && git push --follow-tags origin master",
-    "docker": "docker build -t angularexampleapp . && docker run -d -p 4200:80 angularexampleapp",
+    "docker": "docker build -t usail . && docker run -d -p 4200:80 usail",
     "update": "ng update --all --force"
   },
   "private": true,
