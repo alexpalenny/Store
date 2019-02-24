@@ -91,3 +91,14 @@
     }
   }
 }
+
+.login-bar a {
+  margin-left: 20px;
+  color: white;
+  font-size: 1em;
+  text-decoration: none;
+}
+
+.login-bar a:hover {
+  text-decoration: underline;
+}

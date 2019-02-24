@@ -55,8 +55,8 @@ namespace SeaStore
       })
       .AddFacebook(o =>
       {
-        o.AppId = Configuration["Authorization:Facebook:ClientSecret"];
-        o.AppSecret = Configuration["Authorization:Facebook:ClientSecret"];
+        o.ClientId = Configuration["Authorization:Facebook:ClientSecret"];
+        o.ClientSecret = Configuration["Authorization:Facebook:ClientSecret"];
       })
       //.AddOpenIdConnect(o =>
       //{

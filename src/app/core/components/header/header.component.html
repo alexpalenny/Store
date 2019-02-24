@@ -6,52 +6,55 @@
                     {{item.name | translate | uppercase}}
                 </a>
             </div>
-            <div fxFlex class="text--right">
-                <app-search-bar></app-search-bar>
-                <button mat-icon-button [matMenuTriggerFor]="matmenu">
-                    <mat-icon>public</mat-icon>
-                </button>
-                <mat-menu #matmenu="matMenu">
-                    <button mat-menu-item (click)="changeLanguage('zh-hk')">
-                        <mat-icon>flag</mat-icon>
-                        <span>
-                            Traditional Chinese
-                        </span>
+            <div fxFlex fxLayout="row" fxLayoutAlign="center right">
+                <div class="text--right" fxFlex="80">
+                    <app-search-bar></app-search-bar>
+                    <button mat-icon-button [matMenuTriggerFor]="matmenu">
+                        <mat-icon>public</mat-icon>
                     </button>
-                    <button mat-menu-item (click)="changeLanguage('zh-cn')">
-                        <mat-icon>flag</mat-icon>
-                        <span>
-                            Simplified Chinese
-                        </span>
-                    </button>
-                    <button mat-menu-item (click)="changeLanguage('en')">
-                        <mat-icon>flag</mat-icon>
-                        <span>
-                            English
-                        </span>
-                    </button>
-                    <button mat-menu-item (click)="changeLanguage('es')">
-                        <mat-icon>flag</mat-icon>
-                        <span>
-                            Español
-                        </span>
-                    </button>
-                    <button mat-menu-item (click)="changeLanguage('pt-br')">
-                        <mat-icon>flag</mat-icon>
-                        <span>
-                            Português
-                        </span>
-                    </button>
-                   <button mat-menu-item (click)="changeLanguage('eu')">
-                        <mat-icon>flag</mat-icon>
-                        <span>
-                            Euskera
-                        </span>
-                    </button>
-                </mat-menu>
-                <a class="icon__image" href="{{appConfig.repositoryURL}}" target="_blank">
-                    <img src="assets/images/github-circle-white-transparent.svg">
-                </a>
+                    <mat-menu #matmenu="matMenu">
+                        <button mat-menu-item (click)="changeLanguage('zh-hk')">
+                            <mat-icon>flag</mat-icon>
+                            <span>
+                                Traditional Chinese
+                            </span>
+                        </button>
+                        <button mat-menu-item (click)="changeLanguage('zh-cn')">
+                            <mat-icon>flag</mat-icon>
+                            <span>
+                                Simplified Chinese
+                            </span>
+                        </button>
+                        <button mat-menu-item (click)="changeLanguage('en')">
+                            <mat-icon>flag</mat-icon>
+                            <span>
+                                English
+                            </span>
+                        </button>
+                        <button mat-menu-item (click)="changeLanguage('es')">
+                            <mat-icon>flag</mat-icon>
+                            <span>
+                                Español
+                            </span>
+                        </button>
+                        <button mat-menu-item (click)="changeLanguage('pt-br')">
+                            <mat-icon>flag</mat-icon>
+                            <span>
+                                Português
+                            </span>
+                        </button>
+                        <button mat-menu-item (click)="changeLanguage('eu')">
+                            <mat-icon>flag</mat-icon>
+                            <span>
+                                Euskera
+                            </span>
+                        </button>
+                    </mat-menu>
+                </div>
+                <div class="login-bar" fxFlex="20"  fxLayoutAlign="center center">
+                    <a href="/api/Account/Register">Register</a>
+                    <a href="/api/Account/Login">Login</a>                    
+                </div>
             </div>
         </div>
     </nav>
