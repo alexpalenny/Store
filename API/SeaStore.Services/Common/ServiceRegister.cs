@@ -18,6 +18,8 @@ namespace SeaStore.Services.Common
       services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
       services.AddScoped<IUnitOfWork, HttpUnitOfWork>();
       services.AddScoped<IBoatService, BoatService>();
+      services.AddTransient<IEmailSender, AuthMessageSender>();
+      services.AddTransient<ISmsSender, AuthMessageSender>();
       DbContextRegister.Register(services, configuration);
 
       InitializeAutoMapper();
