@@ -1,7 +1,3 @@
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.Facebook;
-using Microsoft.AspNetCore.Authentication.Google;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
@@ -9,17 +5,17 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OpenIddict.Abstractions;
+using OpenIddict.Core;
+using OpenIddict.EntityFrameworkCore.Models;
 using SeaStore.Entities;
 using SeaStore.Entities.DbContexts;
 using SeaStore.Services.Common;
 using System;
 using System.Net;
-using System.Text;
+using System.Threading.Tasks;
 
 namespace SeaStore
 {
@@ -56,31 +52,38 @@ namespace SeaStore
         options.DefaultSignInScheme = OpenIdConnectDefaults.AuthenticationScheme;
         options.DefaultAuthenticateScheme = OpenIdConnectDefaults.AuthenticationScheme;
       })
-      .AddFacebook(o =>
-      {
-        o.AppId = Configuration["Authorization:Facebook:AppId"];
-        o.AppSecret = Configuration["Authorization:Facebook:AppSecret"];
-      })
-      .AddTwitter(o =>
-      {
-        o.ConsumerKey = Configuration["Authorization:Twitter:ConsumerKey"];
-        o.ConsumerSecret = Configuration["Authorization:Twitter:ConsumerSecret"];
-      })
-      //.AddOpenIdConnect(o =>
+      //services.AddAuthentication(options =>
       //{
-      //  o.ClientId = Configuration["Authorization:Google:ClientId"];
-      //  o.ClientSecret = Configuration["Authorization:Google:ClientSecret"];
-      //  o.Authority = "https://accounts.google.com";
-      //  o.ResponseType = "code";
-      //  o.GetClaimsFromUserInfoEndpoint = true;
+      //  options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+      //  options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+      //  options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
       //})
-      .AddGoogle(o =>
-      {
-        o.ClientId = Configuration["Authorization:Google:ClientId"];
-        o.ClientSecret = Configuration["Authorization:Google:ClientSecret"];
-        o.AuthorizationEndpoint = "https://accounts.google.com";
-      })
-      .AddCookie();
+     .AddFacebook(o =>
+     {
+       o.AppId = Configuration["Authorization:Facebook:AppId"];
+       o.AppSecret = Configuration["Authorization:Facebook:AppSecret"];
+     })
+     .AddTwitter(o =>
+     {
+       o.ConsumerKey = Configuration["Authorization:Twitter:ConsumerKey"];
+       o.ConsumerSecret = Configuration["Authorization:Twitter:ConsumerSecret"];
+     })
+     .AddGoogle(o =>
+     {
+       o.ClientId = Configuration["Authorization:Google:ClientId"];
+       o.ClientSecret = Configuration["Authorization:Google:ClientSecret"];
+       // o.AuthorizationEndpoint = "https://accounts.google.com";
+     })
+     //.AddOpenIdConnect(o =>
+     //{
+     //  o.Authority = "https://accounts.google.com";
+     //  o.RequireHttpsMetadata = false;
+     //  o.ClientId = "mvc";
+     //  o.SaveTokens = true;       
+     //  o.ResponseType = "code";
+     //  o.GetClaimsFromUserInfoEndpoint = true;
+     //})
+     .AddCookie();
 
       services.AddOpenIddict()
 
@@ -98,7 +101,7 @@ namespace SeaStore
             // Register the ASP.NET Core MVC services used by OpenIddict.
             // Note: if you don't call this method, you won't be able to
             // bind OpenIdConnectRequest or OpenIdConnectResponse parameters.
-            //options.UseMvc();
+            options.UseMvc();
 
             // Enable the authorization, logout, token and userinfo endpoints.
             options.EnableAuthorizationEndpoint("/connect/authorize")
@@ -156,7 +159,7 @@ namespace SeaStore
           // default token format or with reference tokens and cannot be used with
           // JWT tokens. For JWT tokens, use the Microsoft JWT bearer handler.
           .AddValidation();
-      services.AddMvc();
+
       //if (!_env.IsDevelopment())
       //  services.Configure<MvcOptions>(o =>
       //      o.Filters.Add(new RequireHttpsAttribute()));
@@ -175,19 +178,6 @@ namespace SeaStore
       {
         app.UseExceptionHandler("/Home/Error");
       }
-      //app.UseIdentityServerAuthentication(new IdentityServerAuthenticationOptions
-      //{
-      //  Authority = Configuration["Settings:Authentication:Authority"],
-      //  RequireHttpsMetadata = false,
-
-      //  ApiName = Configuration["Settings:Authentication:ApiName"],
-      //  ApiSecret = Configuration["Settings:Authentication:ApiSecret"],
-      //  EnableCaching = true,
-      //  CacheDuration = TimeSpan.FromMinutes(10),
-
-      //  AutomaticAuthenticate = true,
-      //  AutomaticChallenge = true
-      //});
 
       app.UseCors(options => options
                 .AllowAnyOrigin()
@@ -215,6 +205,8 @@ namespace SeaStore
           }
         });
       });
+
+      app.UseStatusCodePagesWithReExecute("/error");
       app.UseAuthentication();
       app.UseForwardedHeaders(new ForwardedHeadersOptions
       {
@@ -222,18 +214,84 @@ namespace SeaStore
         ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
       });
 
+      app.UseMvcWithDefaultRoute();
+
+      // Seed the database with the sample applications.
+      // Note: in a real world application, this step should be part of a setup script.
+      app.UseMvcWithDefaultRoute();
+      InitializeAsync(app.ApplicationServices).GetAwaiter().GetResult();
+
       //app.UseSwagger();
       //app.UseSwaggerUI(c =>
       //{
       //  c.SwaggerEndpoint("/swagger/SeaStore/swagger.json", "API swagger");
       //});
-      app.UseMvc(routes =>
+    }
+    private async Task InitializeAsync(IServiceProvider services)
+    {
+      // Create a new service scope to ensure the database context is correctly disposed when this methods returns.
+      using (var scope = services.GetRequiredService<IServiceScopeFactory>().CreateScope())
       {
-        routes.MapRoute(
-            name: "default",
-            template: "{controller=Home}/{action=Index}/{id?}");
-      });
-      app.UseCors(cv => cv.AllowAnyOrigin());
+        var context = scope.ServiceProvider.GetRequiredService<SeaStoreDbContext>();
+        await context.Database.EnsureCreatedAsync();
+
+        var manager = scope.ServiceProvider.GetRequiredService<OpenIddictApplicationManager<OpenIddictApplication>>();
+
+        if (await manager.FindByClientIdAsync("mvc") == null)
+        {
+          var descriptor = new OpenIddictApplicationDescriptor
+          {
+            ClientId = "mvc",
+            ClientSecret = "901564A5-E7FE-42CB-B10D-61EF6A8F3654",
+            DisplayName = "MVC client application",
+            PostLogoutRedirectUris = { new Uri("http://localhost:56884/signout-callback-oidc") },
+            RedirectUris = { new Uri("http://localhost:56884/signin-oidc") },
+            Permissions =
+                        {
+                            OpenIddictConstants.Permissions.Endpoints.Authorization,
+                            OpenIddictConstants.Permissions.Endpoints.Logout,
+                            OpenIddictConstants.Permissions.Endpoints.Token,
+                            OpenIddictConstants.Permissions.GrantTypes.AuthorizationCode,
+                            OpenIddictConstants.Permissions.GrantTypes.RefreshToken,
+                            OpenIddictConstants.Permissions.Scopes.Email,
+                            OpenIddictConstants.Permissions.Scopes.Profile,
+                            OpenIddictConstants.Permissions.Scopes.Roles
+                        }
+          };
+
+          await manager.CreateAsync(descriptor);
+        }
+
+        // To test this sample with Postman, use the following settings:
+        //
+        // * Authorization URL: http://localhost:56884/connect/authorize
+        // * Access token URL: http://localhost:56884/connect/token
+        // * Client ID: postman
+        // * Client secret: [blank] (not used with public clients)
+        // * Scope: openid email profile roles
+        // * Grant type: authorization code
+        // * Request access token locally: yes
+        if (await manager.FindByClientIdAsync("postman") == null)
+        {
+          var descriptor = new OpenIddictApplicationDescriptor
+          {
+            ClientId = "postman",
+            DisplayName = "Postman",
+            RedirectUris = { new Uri("https://www.getpostman.com/oauth2/callback") },
+            Permissions =
+                        {
+                            OpenIddictConstants.Permissions.Endpoints.Authorization,
+                            OpenIddictConstants.Permissions.Endpoints.Token,
+                            OpenIddictConstants.Permissions.GrantTypes.AuthorizationCode,
+                            OpenIddictConstants.Permissions.Scopes.Email,
+                            OpenIddictConstants.Permissions.Scopes.Profile,
+                            OpenIddictConstants.Permissions.Scopes.Roles
+                        }
+          };
+
+          await manager.CreateAsync(descriptor);
+        }
+      }
     }
   }
 }

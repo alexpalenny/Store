@@ -24,7 +24,7 @@ namespace SeaStore.Controllers
       return "Test 1011 " + DateTime.Now;
     }
     // GET api/values
-    //[Authorize]
+    [Authorize]
     [HttpGet]
     public IEnumerable<BoatDto> Get()
     {
