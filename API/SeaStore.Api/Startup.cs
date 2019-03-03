@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,9 +25,11 @@ namespace SeaStore
 {
   public class Startup
   {
-    public Startup(IConfiguration configuration)
+    private readonly IHostingEnvironment _env;
+    public Startup(IConfiguration configuration, IHostingEnvironment env)
     {
       Configuration = configuration;
+      _env = env;
     }
 
     public IConfiguration Configuration { get; }
@@ -41,7 +44,8 @@ namespace SeaStore
       services.AddCors();
       services.AddIdentity<ApplicationUser, ApplicationRole>().AddEntityFrameworkStores<SeaStoreDbContext>()
         .AddDefaultTokenProviders();
-      services.ConfigureApplicationCookie(options => {
+      services.ConfigureApplicationCookie(options =>
+      {
         options.AccessDeniedPath = new PathString("/Account/Login");
         options.LoginPath = new PathString("/Account/Login");
         options.LogoutPath = new PathString("/Account/LogOff");
@@ -49,14 +53,18 @@ namespace SeaStore
       services.AddAuthentication(options =>
       {
         options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
-        options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-        options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+        options.DefaultSignInScheme = OpenIdConnectDefaults.AuthenticationScheme;
         options.DefaultAuthenticateScheme = OpenIdConnectDefaults.AuthenticationScheme;
       })
       .AddFacebook(o =>
       {
-        o.ClientId = Configuration["Authorization:Facebook:ClientSecret"];
-        o.ClientSecret = Configuration["Authorization:Facebook:ClientSecret"];
+        o.AppId = Configuration["Authorization:Facebook:AppId"];
+        o.AppSecret = Configuration["Authorization:Facebook:AppSecret"];
+      })
+      .AddTwitter(o =>
+      {
+        o.ConsumerKey = Configuration["Authorization:Twitter:ConsumerKey"];
+        o.ConsumerSecret = Configuration["Authorization:Twitter:ConsumerSecret"];
       })
       //.AddOpenIdConnect(o =>
       //{
@@ -71,7 +79,8 @@ namespace SeaStore
         o.ClientId = Configuration["Authorization:Google:ClientId"];
         o.ClientSecret = Configuration["Authorization:Google:ClientSecret"];
         o.AuthorizationEndpoint = "https://accounts.google.com";
-      });
+      })
+      .AddCookie();
 
       services.AddOpenIddict()
 
@@ -116,7 +125,7 @@ namespace SeaStore
             options.EnableRequestCaching();
 
             // During development, you can disable the HTTPS requirement.
-            options.DisableHttpsRequirement();
+            // options.DisableHttpsRequirement();
 
             // Note: to use JWT access tokens instead of the default
             // encrypted format, the following lines are required:
@@ -148,12 +157,15 @@ namespace SeaStore
           // JWT tokens. For JWT tokens, use the Microsoft JWT bearer handler.
           .AddValidation();
       services.AddMvc();
+      //if (!_env.IsDevelopment())
+      //  services.Configure<MvcOptions>(o =>
+      //      o.Filters.Add(new RequireHttpsAttribute()));
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline. 
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    public void Configure(IApplicationBuilder app)
     {
-      if (env.IsDevelopment())
+      if (_env.IsDevelopment())
       {
         app.UseBrowserLink();
         app.UseDeveloperExceptionPage();
@@ -221,6 +233,7 @@ namespace SeaStore
             name: "default",
             template: "{controller=Home}/{action=Index}/{id?}");
       });
+      app.UseCors(cv => cv.AllowAnyOrigin());
     }
   }
 }
