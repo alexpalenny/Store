@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SeaStore.Entities.Configuration;
@@ -16,6 +17,12 @@ namespace SeaStore.Entities.DbContexts
     public DbSet<Boat> Boats { get; set; }
     public DbSet<PayType> PayTypes { get; set; }
     public DbSet<BoatType> BoatTypes { get; set; }
+
+    public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+    public DbSet<ApplicationRole> ApplicationRoles { get; set; }
+    public DbSet<IdentityUserRole<Guid>> IdentityUserRoles { get; set; }
+    public DbSet<IdentityUserClaim<Guid>> IdentityUserClaims { get; set; }
+
 
     public SeaStoreDbContext() : base()
     {
@@ -39,6 +46,11 @@ namespace SeaStore.Entities.DbContexts
       builder.ApplyConfiguration(new BoatConfiguration());
       builder.ApplyConfiguration(new BoatTypeConfiguration());
       builder.ApplyConfiguration(new PayTypeConfiguration());
+
+      builder.Entity<ApplicationUser>().HasKey(p => p.Id);
+      builder.Entity<ApplicationRole>().HasKey(p => p.Id);
+      builder.Entity<IdentityUserRole<Guid>>().HasKey(p => new { p.UserId, p.RoleId });
+
 
       base.OnModelCreating(builder);
     }

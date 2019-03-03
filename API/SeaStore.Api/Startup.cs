@@ -39,7 +39,7 @@ namespace SeaStore
       services.AddLogging();
       services.AddResponseCaching();
       services.AddCors();
-      services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<SeaStoreDbContext>()
+      services.AddIdentity<ApplicationUser, ApplicationRole>().AddEntityFrameworkStores<SeaStoreDbContext>()
         .AddDefaultTokenProviders();
       services.ConfigureApplicationCookie(options => {
         options.AccessDeniedPath = new PathString("/Account/Login");
